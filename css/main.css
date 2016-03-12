@@ -1,0 +1,48 @@
+body {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  background: none;
+  opacity: 0.8;
+}
+
+.full {
+  background: url('../img/woman-cat.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+
+a.btn.btn-primary.btn-md{
+  height: 40px;
+  width: 75px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  background-color: #E7B223;
+}
+
+.title-index {
+  display: block;
+  margin: 0 auto;
+  font-family: 'Pacifico', cursive;
+  font-size: 5em;
+  color: #DAF7A6;
+  position: relative;
+}
+
+.title-subtext {
+  font-family: 'Pacifico', cursive;
+  color: #E7B223;
+  font-size: 2.5em;
+  margin-top: 8px;
+}
+
+.title-subtext a{
+  color: #E7B223;
+  text-decoration: none;
+}
+
+.homecat {
+  margin-left: 40px;
+}
