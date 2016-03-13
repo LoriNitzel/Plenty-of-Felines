@@ -1,0 +1,44 @@
+<div class="container">
+    <div class="row">
+      <div class="col-md-6 col-sm-12">
+        <h1 class="title-index" style="text-align: center;">Plenty of Felines</h1>
+      </div>
+    </div>
+    <div class="row" ng-controller="JoinController as JC">
+      <div class="col-md-6 col-sm-12">
+        <h2 class="welcome-title">Welcome!</h2>
+        <p class="welcome-text"><span>Plenty of Felines</span> is a matchmaking service for adoptable cats and the humans looking to give them forever homes. We match cats with people by looking specifically at cats' characteristics and needs and matching those with the information we obtain when users fill out our short questionnaire.</p>
+        <p>Once you've filled out the questionnaire, we will give you a list of cats who we think could be your favorite new companions. All available cats are from the <a href="https://www.fccrsnc.org/" target="_blank">Fort Collins Cat Rescue</a>, and you can visit your matches at their facility on E. Mulberry.</p>
+        <h1>Register as a User</h1>
+        <p>You will receive no emails at all from us, since this project is volunteer-run!</p>
+      <div class="form-group">
+        <form name="signupForm">
+        <label>First Name</label>
+        <input type="text" name="FirstName" required class="form-control" placeholder="First Name" id="FirstName" ng-model="JC.firstname">
+        <label>Last Name</label>
+        <input type="text" name="LastName" required class="form-control" placeholder="Last Name" id="LastName" ng-model="JC.lastname">
+        <label>Username</label>
+        <input type="text" name="Username" required class="form-control" placeholder="Username" id="Username" ng-model="JC.username" ng-minlength="5" ng-maxlength="15">
+        <p ng-show='signupForm.Username.$error.required && signupForm.Username.$touched'>
+        Username is required.
+        </p>
+        <p ng-show='warmupForm.Username.$error.minlength && warmupForm.Username.$dirty'>
+        Username needs to be between 5 - 15 characaters.
+        </p>
+        <label>Password</label>
+        <input type="text" name="Password" required class="form-control" placeholder="Password" id="Password" ng-model="JC.password">
+        <label>Email Address</label>
+        <p ng-show='signupForm.Password.$error.required && signupForm.Password.$touched'>
+        Password is required.
+        </p>
+        <p ng-show='warmupForm.Password.$error.minlength && warmupForm.Password.$dirty'>
+        Password needs to be between 5 - 15 characaters.
+        </p>
+        <input type="text" name="Email" required class="form-control" placeholder="Email" id="Email" ng-model="JC.email">
+        <button class="btn btn-default" ng-click="">Register!</button> 
+        </form>
+      </div>    
+        <h2 style="text-align: center;">Thank you for adopting homeless cats!</h2>
+      </div>
+    </div>
+</div>

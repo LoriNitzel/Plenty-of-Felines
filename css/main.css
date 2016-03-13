@@ -46,3 +46,13 @@ a.btn.btn-primary.btn-md{
 .homecat {
   margin-left: 40px;
 }
+
+.modal-title {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+}
+
+.modal-body-text {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5em;
+}
