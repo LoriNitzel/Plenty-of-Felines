@@ -2,7 +2,7 @@ angular.module('pofApp')
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
-        templateUrl: 'enter.html',
+        templateUrl: 'views/enter.html',
         controller: 'MainController as MC'
       })
     
@@ -18,7 +18,7 @@ angular.module('pofApp')
         templateUrl: 'views/settings.html'
       })
 
-      .when('/index', {
+      .when('/main', {
         templateUrl: '.views/welcome.html'
       })
 
@@ -29,5 +29,7 @@ angular.module('pofApp')
       .when('/questions/:id', {
         templateUrl: 'views/questions2.html'
       })
-
-  })
+      .otherwise({
+        redirectTo: '/'
+    });
+  });
