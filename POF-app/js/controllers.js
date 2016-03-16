@@ -1,7 +1,7 @@
-app.controller('MainController', ['$scope', MainController]);
-  // .controller('navController', [navController]);
+app.controller('mainController', ['$scope', mainController]);
+app.controller('matchesController', ['$scope', '$routeParams', 'catsService', matchesController]);
 
-function MainController($scope){
+function mainController($scope){
   var vm = this;
  
   vm.GuestEnter = function(){
@@ -9,6 +9,12 @@ function MainController($scope){
   };
 
 
+};
+
+function matchesController($scope, catsService, $routeParams){
+  var vm = this; 
+
+  
 }
 
 // function JoinController ($scope){

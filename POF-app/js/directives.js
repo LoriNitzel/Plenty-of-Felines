@@ -1,25 +1,20 @@
-function (){
-  angular
-    .module('pofApp')
-    .directive('footerTemp', footerTemp);
+  angular.module('pofApp')
+    .directive('footerdir', footerdir);
 
-  function footerTemp() {
+  function footerdir() {
     return {
-      restrict: 'EA',
-      templateUrl: '/directives/footerTemp.html'
+      restrict: 'A',
+      replace: true,
+      templateUrl: '/directives/footerdir.html'
     };
-  }
-};
+  };
+    
+ angular.module('pofApp')
+    .directive('navbardir', navbardir);
 
-function (){
-  angular
-    .module('pofApp')
-    .directive('navbarTemp', navbarTemp);
-
-    function navbarTemp(){
-      return {
-        restrict: 'EA',
-        templateUrl: '/directives/navbarTemp.html'
-      };
-    }
-};
+  function navbardir() {
+    return {
+      restrict: 'A',
+      templateUrl: '/directives/navbardir.html'
+    };
+  };

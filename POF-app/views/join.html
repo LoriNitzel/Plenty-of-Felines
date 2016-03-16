@@ -1,13 +1,7 @@
-<div class="container">
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-        <h1 class="title-index" style="text-align: center;">Plenty of Felines</h1>
-      </div>
-    </div>
-    <div class="row" ng-controller="JoinController as JC">
-      <div class="col-md-6 col-sm-12">
+    <div class="row" id="welcome-text">
+      <div class="col-md-offset-2 col-md-8 col-sm-12">
         <h2 class="welcome-title">Welcome!</h2>
-        <p class="welcome-text"><span>Plenty of Felines</span> is a matchmaking service for adoptable cats and the humans looking to give them forever homes. We match cats with people by looking specifically at cats' characteristics and needs and matching those with the information we obtain when users fill out our short questionnaire.</p>
+        <p class="welcome-text"><span class="microbrand">Plenty of Felines</span> is a matchmaking service for adoptable cats and the humans looking to give them forever homes. We match cats with people by looking specifically at cats' characteristics and needs and matching those with the information we obtain when users fill out our short questionnaire.</p>
         <p>Once you've filled out the questionnaire, we will give you a list of cats who we think could be your favorite new companions. All available cats are from the <a href="https://www.fccrsnc.org/" target="_blank">Fort Collins Cat Rescue</a>, and you can visit your matches at their facility on E. Mulberry.</p>
         <h1>Register as a User</h1>
         <p>You will receive no emails at all from us, since this project is volunteer-run!</p>
@@ -27,10 +21,10 @@
         Password needs to be between 5 - 15 characaters.
         </p>
         <input type="text" name="Email" required class="form-control" placeholder="Email" id="Email" ng-model="JC.email">
+        <br>
         <button class="btn btn-default" ng-click="">Register!</button> 
         </form>
       </div>    
-        <h2 style="text-align: center;">Thank you for adopting homeless cats!</h2>
+        <h2 id="thanks" style="text-align: center;">Thank you for adopting homeless cats!</h2>
       </div>
     </div>
-</div>

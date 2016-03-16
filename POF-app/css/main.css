@@ -14,14 +14,6 @@ body {
 }
 
 
-a.btn.btn-primary.btn-md{
-  height: 40px;
-  width: 75px;
-  margin-left: 30px;
-  margin-bottom: 10px;
-  background-color: #E7B223;
-}
-
 .title-index {
   display: block;
   margin: 0 auto;
@@ -52,7 +44,84 @@ a.btn.btn-primary.btn-md{
   font-size: 2.5em;
 }
 
+.modal-body {
+  display: inline-block;
+}
+
 .modal-body-text {
   font-family: 'Pacifico', cursive;
   font-size: 2.5em;
 }
+
+/*.modal.fade {
+  left: -25%;
+  -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+          transition: opacity 0.3s linear, left 0.3s ease-out;
+}
+
+.modal.fade.in {
+  left: 50%;
+}*/
+
+
+#welcome-text {
+  margin: auto;
+}
+
+.welcome-title {
+  text-align: center;
+}
+
+#navtitle {
+  font-family: 'Pacifico', cursive;
+  font-size: 2em;
+  color: #DAF7A6;
+}
+
+#thanks {
+  font-family: 'Pacifico', cursive;
+  font-size: 3em;
+  color: #900C3F;
+}
+
+.titlebrand {
+  font-family: 'Pacifico', cursive;
+  font-size: 1.5em;
+  color: #FF5733;
+}
+
+.parabrand {
+  font-family: 'Pacifico', cursive;
+  font-size: 22px;
+  color: #FF5733;
+}
+
+.microbrand {
+  font-family: 'Pacifico', cursive;
+  font-size: 18px;
+  color: #FF5733;
+}
+
+/* CSS for profile page */
+.panel-body {
+  background-color: #eaeaea;
+}
+
+img.avatar {
+  border: 1px solid grey;
+  height: 150px;
+  width: 150px;
+}
+
+.only-bottom-margin {
+  margin-top: 0px;
+}
+
+.activity-mini {
+  padding-right: 15px;
+  float: left;
+}
+
+

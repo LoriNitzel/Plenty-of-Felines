@@ -2,8 +2,7 @@ angular.module('pofApp')
   .config(function($routeProvider){
     $routeProvider
       .when('/', {
-        templateUrl: 'views/enter.html',
-        controller: 'MainController as MC'
+        templateUrl: 'views/welcome.html'
       })
     
       .when('/users', {
@@ -18,8 +17,13 @@ angular.module('pofApp')
         templateUrl: 'views/settings.html'
       })
 
-      .when('/main', {
-        templateUrl: '.views/welcome.html'
+      .when('/users/:id/matches', {
+        templateUrl: 'views/matches.html',
+        controller: 'matchesController as MC'
+      })
+
+      .when('/users/:id/matches/:id', {
+        templateUrl: 'views/cats.html'
       })
 
       .when('/questions', {
@@ -29,7 +33,17 @@ angular.module('pofApp')
       .when('/questions/:id', {
         templateUrl: 'views/questions2.html'
       })
+
+      .when('/about', {
+        templateUrl: 'views/about.html'
+      })
+
+      .when('/contact', {
+        templateUrl: 'views/contact.html'
+      })
+    
       .otherwise({
         redirectTo: '/'
     });
+      // $locationProvider.html5Mode(true);
   });
