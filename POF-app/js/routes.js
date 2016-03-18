@@ -42,6 +42,11 @@ angular.module('pofApp')
       .when('/contact', {
         templateUrl: 'views/contact.html'
       })
+
+      .when('/allcats', {
+        templateUrl: 'views/allcats.html',
+        controller:'allcatsController as AC'
+      })
     
       .otherwise({
         redirectTo: '/'

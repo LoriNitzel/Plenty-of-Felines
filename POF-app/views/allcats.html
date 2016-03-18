@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12" style="text-align: center;">
+  <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
+  <h3>All Available Cats</h3>
+  </div>
+</div>
+
+<span class="row" id="welcome-text">
+  <div class="col-md-4 col-sm-12" id="allcats" ng-repeat="cat in AC.cats.data" style="text-align: center;">
+    <h2>{{cat.name}}</h2>
+    <p><img class="catpics" src="{{cat.photo}}"/></p>
+    <p>Age: {{cat.age}}</p>
+    <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
+    <p><strong>About {{cat.name}}:</strong></p>
+    <p>{{cat.general_characteristics}}</p>
+  </div>
+</span>

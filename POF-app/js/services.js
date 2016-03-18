@@ -1,13 +1,8 @@
 angular.module('pofApp')
   .service('catsService', ['$http', function($http){
     return {
-      getCats:function(catdata){
-        return $http.get('http://localhost:3000/users/:id/matches', catdata)
-         .then(function(response){
-          console.log(response);
-        }, function(error){
-          console.log(error);
-        })
+      getCats: function(){
+        return $http.get('http://localhost:3000/allcats');
       }
     }
   }])

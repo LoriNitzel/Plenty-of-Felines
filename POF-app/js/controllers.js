@@ -1,5 +1,6 @@
 app.controller('mainController', ['$scope', mainController]);
-app.controller('matchesController', ['$scope', '$routeParams', 'catsService', matchesController]);
+app.controller('matchesController', ['$scope', 'catsService', '$routeParams', matchesController]);
+app.controller('allcatsController', ['$scope', 'catsService', '$routeParams', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', questionsController]);
 
 function mainController($scope){
@@ -12,18 +13,22 @@ function mainController($scope){
 
 };
 
+
 function matchesController($scope, catsService, $routeParams){
-  var vm = this; 
-
-  vm.getCats = getCats;
-
-  function getCats(catdata){
-    catsService.getCats(catdata).then(function(response){
-    console.log(response);
-    // vm.cats = 
-  });
-  }
+  var vm = this;
 }
+
+
+function allcatsController($scope, catsService, $routeParams){
+  var vm = this; 
+  vm.test = "vlah";
+  
+  catsService.getCats().then(function(catdata){
+    console.log(catdata);
+    vm.cats = catdata;
+  })
+}
+
 
 
 
