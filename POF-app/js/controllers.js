@@ -15,12 +15,14 @@ function mainController($scope){
 function matchesController($scope, catsService, $routeParams){
   var vm = this; 
 
+  vm.getCats = getCats;
 
-
-  catsService.getCats().then(function(data){
-    console.log(data);
+  function getCats(catdata){
+    catsService.getCats(catdata).then(function(response){
+    console.log(response);
+    // vm.cats = 
   });
-
+  }
 }
 
 
@@ -40,6 +42,6 @@ function questionsController($scope, holdingService){
           });
         }
   }
-}
+};
 
 

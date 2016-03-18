@@ -2,7 +2,7 @@ angular.module('pofApp')
   .service('catsService', ['$http', function($http){
     return {
       getCats:function(catdata){
-        return $http.get('http://localhost:3000/users/:id/matches')
+        return $http.get('http://localhost:3000/users/:id/matches', catdata)
          .then(function(response){
           console.log(response);
         }, function(error){
@@ -12,13 +12,6 @@ angular.module('pofApp')
     }
   }])
 
-  //   this.getCats = function(){
-  //     var config = {
-  //       method: 'GET',
-  //       url: 'http://localhost:3000/users/:id/matches'
-  //     };
-  //     return $http(config);
-  //   }
 
   //   this.showCats = function(){
   //     var config = {
@@ -44,9 +37,38 @@ angular.module('pofApp')
       }
    }]);
 
+  
+//   .service('SignupService', ['$http', SignupService])
+
+// function SignupService($http){
+//   return {
+//     signup: function(user){
+//         return $http.post('http://localhost:3000/users/signup', user)
+//         .then(function(response){
+//           return response;
+//         }, function(error){
+//           return error;
+//         });
+//       }
+//     };
+//   }
 
 
-  // .service('signupService', ['$http', signupService]);
+//   .service('SigninService', ['$http', SigninService])
+
+// function SigninService($http){
+//   return {
+//     signin: function(user){
+//         return $http.post('http://localhost:3000/users/signin', user)
+//         .then(function(response){
+//           return response;
+//         }, function(error){
+//           return error;
+//         });
+//     }
+//   };
+// }
+
 
 // $http.get('http://api.petfinder.com/auth.getToken?key=19d1a42a0f73c34d672584bd569b2ef1&arg1=foo&token=67890&sig=abcdef')
 
