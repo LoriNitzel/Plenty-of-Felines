@@ -27,7 +27,8 @@ angular.module('pofApp')
       })
 
       .when('/questions', {
-        templateUrl: 'views/questions.html'
+        templateUrl: 'views/questions.html', 
+        controller: 'questionsController as QC'
       })
 
       .when('/questions/:id', {

@@ -1,23 +1,50 @@
 angular.module('pofApp')
   .service('catsService', ['$http', function($http){
-
-    this.getCats = function(){
-      var config = {
-        method: 'GET',
-        url: 'http://localhost:3000'
-      };
-      return $http(config);
+    return {
+      getCats:function(catdata){
+        return $http.get('http://localhost:3000/users/:id/matches')
+         .then(function(response){
+          console.log(response);
+        }, function(error){
+          console.log(error);
+        })
+      }
     }
+  }])
 
-    this.showCats = function(){
-      var config = {
-        method: 'GET',
-        url: 'http://localhost:3000/' + id
-      };
-    }
+  //   this.getCats = function(){
+  //     var config = {
+  //       method: 'GET',
+  //       url: 'http://localhost:3000/users/:id/matches'
+  //     };
+  //     return $http(config);
+  //   }
 
-  }]);
+  //   this.showCats = function(){
+  //     var config = {
+  //       method: 'GET',
+  //       url: 'http://localhost:3000/' + id
+  //     };
+  //     return $http(config);
+  //   }
+
+  // }])
  
+
+  .service('holdingService', ['$http', function($http){
+    return {
+      postAnswers:function(holdAnswer){
+        return $http.post('http://localhost:3000/questions', holdAnswer)
+        .then(function(response){
+          console.log(response);
+        }, function(error){
+          console.log(error);
+        })
+      }
+      }
+   }]);
+
+
 
   // .service('signupService', ['$http', signupService]);
 

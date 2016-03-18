@@ -4,8 +4,14 @@
   </div>
 </div>
 
-<div class="row" id="welcome-text">
-  <div class="col-md-12 col-sm-12">
-    {{4+8}}
+<div class="row" id="welcome-text" ng-repeat="cat in MC.data">
+  <div class="col-md-4 col-sm-12">
+    <p>{{cat.name}}</p>
+  </div>
+   <div class="col-md-4 col-sm-12">
+    <p>{{}}</p>
+  </div>
+   <div class="col-md-4 col-sm-12">
+    <p>{{}}</p>
   </div>
 </div>

@@ -1,5 +1,6 @@
 app.controller('mainController', ['$scope', mainController]);
 app.controller('matchesController', ['$scope', '$routeParams', 'catsService', matchesController]);
+app.controller('questionsController', ['$scope', 'holdingService', questionsController]);
 
 function mainController($scope){
   var vm = this;
@@ -14,32 +15,31 @@ function mainController($scope){
 function matchesController($scope, catsService, $routeParams){
   var vm = this; 
 
-  
+
+
+  catsService.getCats().then(function(data){
+    console.log(data);
+  });
+
 }
 
-// function JoinController ($scope){
-//   var vm = this;
-//   vm.joinSubmit = function(firstname, lastname, username, password, email){
-//     $http({
-//       method: 'POST',
-//       url: 'https://localhost3000',
-//       data: {
-//         firstname: firstname,
-//         lastname: lastname,
-//         username: username,
-//         password: password,
-//         email: email
-//       }
-//     }).then(function(data){
-//       console.log(data);
-//     });
-//   };
-// }
 
-// function LoginController($scope){
-//   var vm = this;
-//   vm.loginSubmit = function(){
 
-//   }
-// };
+function questionsController($scope, holdingService){
+  var vm = this;
+
+  vm.holdingService = holdingService;
+
+    var holdAnswer = [];
+    this.answerdata = function(info){
+      holdAnswer.push(info);
+      console.log(holdAnswer);
+        if (holdAnswer.length === 8) {
+          holdingService.postAnswers(holdAnswer).then(function(response){
+            console.log(response);
+          });
+        }
+  }
+}
+
 
