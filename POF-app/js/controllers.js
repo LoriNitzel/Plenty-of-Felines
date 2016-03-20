@@ -95,7 +95,7 @@ function questionsController($scope, holdingService, $location){
     this.answerdata = function(info){
       holdAnswer.push(info);
       console.log(holdAnswer);
-        if (holdAnswer.length === 8) {
+        if (holdAnswer.length === 10) {
           holdingService.postAnswers(holdAnswer).then(function(response){
             console.log(response);
           });
