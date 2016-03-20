@@ -35,15 +35,6 @@ angular.module('pofApp')
       }
    }])
 
-//****** post User signup data when they register *****//
-  
-.service('signupService', ['$http', function($http){
-   return {
-      signup: function(userData){
-        return $http.post('http://localhost:3000/users', userData);
-    }
-  }
- }])
 
 //****** post user as a Guest in the database ******//
 
@@ -55,6 +46,16 @@ angular.module('pofApp')
 // }
 // }]);
 
+
+//****** post User signup data when they register *****//
+  
+.service('signupService', ['$http', function($http){
+   return {
+      signup: function(userData){
+        return $http.post('http://localhost:3000/users', userData);
+    }
+  }
+ }])
 
 //****** Sign registered user in to the application ******//
 
@@ -73,6 +74,16 @@ angular.module('pofApp')
 //     }
 //   };
 // }
+
+//****** Grab User ID info for Profile ******//
+
+  .service('profileService', ['$http', '$routeParams', function($http, $routeParams){
+    return {
+      showUser: function(param1){
+        return $http.get('http://localhost:3000/users/' + param1);
+      }
+    }
+  }]);
 
 
 

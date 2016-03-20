@@ -11,7 +11,8 @@ angular.module('pofApp')
       })
 
       .when('/users/:id', {
-        templateUrl: 'views/profile.html'
+        templateUrl: 'views/profile.html',
+        controller: 'profileController as PC'
       })
 
       .when('/users/:id/settings', {

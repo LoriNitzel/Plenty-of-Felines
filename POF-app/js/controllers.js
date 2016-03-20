@@ -4,6 +4,7 @@ app.controller('joinController', ['$scope', 'signupService', joinController]);
 // app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$location', questionsController]);
+app.controller('profileController', ['$scope', 'profileService', '$routeParams', profileController]);
 
 //+++++++ MAIN CONTROLLER - NOT SURE WHAT IT DOES YET +++++++//
 
@@ -48,7 +49,18 @@ function joinController($scope, signupService){
 //+++++++ USER SIGN IN CONTROLLER +++++++//
 
 
+//+++++++ SHOW USER PROFILE CONTROLLER +++++//
 
+function profileController($scope, profileService, $routeParams){
+  var vm = this; 
+  vm.param1 = $routeParams.id;
+
+  profileService.showUser(vm.param1).then(function(data){
+    console.log(data);
+    vm.user = data.data;
+  })
+
+}
 
 //+++++++ GUEST SIGN IN CONTROLLER +++++++//
 
