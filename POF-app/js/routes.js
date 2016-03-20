@@ -6,7 +6,8 @@ angular.module('pofApp')
       })
     
       .when('/users', {
-        templateUrl: 'views/join.html'
+        templateUrl: 'views/join.html',
+        controller: 'joinController as JC'
       })
 
       .when('/users/:id', {
@@ -43,8 +44,13 @@ angular.module('pofApp')
         templateUrl: 'views/contact.html'
       })
 
-      .when('/allcats', {
+      .when('/cats', {
         templateUrl: 'views/allcats.html',
+        controller:'allcatsController as AC'
+      })
+
+      .when('/cats/:id', {
+        templateUrl: 'views/cats.html',
         controller:'allcatsController as AC'
       })
     
