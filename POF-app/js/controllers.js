@@ -4,7 +4,7 @@ app.controller('joinController', ['$scope', 'signupService', joinController]);
 // app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$location', questionsController]);
-app.controller('profileController', ['$scope', 'profileService', '$routeParams', profileController]);
+app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
 
 //+++++++ MAIN CONTROLLER - NOT SURE WHAT IT DOES YET +++++++//
 
@@ -51,7 +51,7 @@ function joinController($scope, signupService){
 
 //+++++++ SHOW USER PROFILE CONTROLLER +++++//
 
-function profileController($scope, profileService, $routeParams){
+function profileController($scope, profileService, $routeParams, $location){
   var vm = this; 
   vm.param1 = $routeParams.id;
 
@@ -60,6 +60,18 @@ function profileController($scope, profileService, $routeParams){
     vm.user = data.data;
   })
 
+  profileService.updateUser(vm.param1).then(function(data){
+    console.log(data);
+    vm.user = data.data;
+  })
+
+  vm.openEdit = function(path){
+    $location.path('/users/:id/edit');
+  }
+  // profileService.deleteUser(vm.param1).then(function(data){
+  //   console.log(data);
+  //   vm.user = data.data;
+  // });
 }
 
 //+++++++ GUEST SIGN IN CONTROLLER +++++++//
@@ -83,11 +95,19 @@ function allcatsController($scope, catsService, indcatsService, $routeParams){
     vm.cats = catdata;
   })
 
- 
   indcatsService.showCats(vm.param1).then(function(data){
     console.log(data);
     vm.cat = data.data;
-  });
+  })
+
+  indcatsService.updateCat(vm.param1).then(function(data){
+    console.log(data);
+    vm.cat = data.data;
+  })
+  // indcatsService.deleteCat(vm.param1).then(function(data){
+  //   console.log(data);
+  //   vm.cat = data.data;
+  // });
 }
 
 
@@ -96,7 +116,7 @@ function allcatsController($scope, catsService, indcatsService, $routeParams){
 function questionsController($scope, holdingService, $location){
   var vm = this;
 
-  vm.openQuestions = function(){
+  vm.openQuestions = function(path){
     console.log('blah');
     $location.path('/questions');
   }

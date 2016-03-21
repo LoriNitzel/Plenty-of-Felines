@@ -16,9 +16,15 @@ angular.module('pofApp')
     return{
       showCats: function(param1){
         return $http.get('http://localhost:3000/cats/' + param1);
-      }
+      },
+      updateCat: function(param1){
+        return $http.put('http://localhost:3000/cats/' + param1);
+      },
+      deleteCat: function(param1){
+        return $http.delete('http://localhost:3000/cats/' + param1);
     }
-  }])
+  }
+}])
  
 //****** post Question data entered by Users in Users table*****//
 
@@ -81,6 +87,12 @@ angular.module('pofApp')
     return {
       showUser: function(param1){
         return $http.get('http://localhost:3000/users/' + param1);
+      },
+      updateUser: function(param1){
+        return $http.put('http://localhost:3000/users/' + param1);
+      },
+      deleteUser: function(param1){
+        return $http.delete('http://localhost:3000/users/' + param1);
       }
     }
   }]);
