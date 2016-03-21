@@ -54,6 +54,10 @@ angular.module('pofApp')
         templateUrl: 'views/cats.html',
         controller:'allcatsController as AC'
       })
+
+      .when('/admin', {
+        templateUrl: 'views/admin.html'
+      })
     
       .otherwise({
         redirectTo: '/'

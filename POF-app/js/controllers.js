@@ -5,6 +5,7 @@ app.controller('joinController', ['$scope', 'signupService', joinController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
+app.controller('signinController', ['$scope', 'signinService', '$window', signinController]);
 
 //+++++++ MAIN CONTROLLER - NOT SURE WHAT IT DOES YET +++++++//
 
@@ -48,6 +49,24 @@ function joinController($scope, signupService){
 
 //+++++++ USER SIGN IN CONTROLLER +++++++//
 
+function signinController($scope, signinService, $window){
+
+  var vm = this;
+  vm.logout = logout; 
+  vm.signin = signinService.signin(email, password).then(function(response) {
+        //get the token from the response and save it in sessionStorage or local storage
+        $window.sessionStorage.token = response.data.token;
+        console.log(response.data.token);
+      })
+      .catch(function() {
+        console.error('something went wrong!');
+      });
+
+      function logout(){
+        delete $window.sessionStorage.token;
+      }
+      
+}
 
 //+++++++ SHOW USER PROFILE CONTROLLER +++++//
 

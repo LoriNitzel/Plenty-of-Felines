@@ -66,20 +66,19 @@ angular.module('pofApp')
 //****** Sign registered user in to the application ******//
 
 
-//   .service('SigninService', ['$http', SigninService])
+.service('signinService', ['$http', function($http){
+  return {
+    signin: function(email, password){
+      return $http.post('http://localhost:3000/login', {"email": email, "password": password})
+       .then(function(response){
+          return response;
+        }, function(error){
+          return error;
+        })
+      }
+    }
+}])
 
-// function SigninService($http){
-//   return {
-//     signin: function(user){
-//         return $http.post('http://localhost:3000/users/signin', user)
-//         .then(function(response){
-//           return response;
-//         }, function(error){
-//           return error;
-//         });
-//     }
-//   };
-// }
 
 //****** Grab User ID info for Profile ******//
 
