@@ -1,0 +1,281 @@
+<!--  have normal background with header and footer with question modals in front -->
+<div class="row">
+  <div class="col-md-12 col-sm-12" style="text-align: center;">
+  <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
+    <h1>Questionnaire</h1>
+    <a class="btn btn-primary btn-md" data-toggle="modal" data-target="#myModal" style="margin-top: 30px;">Question 1</a>
+  </div>
+</div>
+
+<!-- modal content here:  -->
+
+   <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 1</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Would you like a specific gender?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('desired_gender', 'male')" ng-model="QC.male" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal2" data-dismiss="modal">Male</button>
+            <button ng-click="QC.answerdata('desired_gender', 'female')" ng-model="QC.female" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal2" data-dismiss="modal">Female</button>
+            <button ng-click="QC.answerdata('desired_gender', 'any')" ng-model="QC.any" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal2" data-dismiss="modal" >I'd love either!</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+<!-- modal 2 content here -->
+
+
+   <div class="modal fade" id="modal2">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 2</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Click on an age range you are interested in:</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('desired_age', 'kittens')" ng-model="QC.kittens" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal3" data-dismiss="modal" style="margin-bottom: 5px">Kittens (under age 1)</button>
+            <button ng-click="QC.answerdata('desired_age', 'young-adults')" ng-model="QC.youngadults" type="button" class="btn btn-success" id="buttonspaceQ" data-toggle="modal" data-target="#modal3" data-dismiss="modal" style="margin-bottom: 5px">Young Adult Cats (under age 4)</button>
+            <button ng-click="QC.answerdata('desired_age', 'adults')" ng-model="QC.adults" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal3" data-dismiss="modal">Adult Cats (under age 10)</button>
+            <button ng-click="QC.answerdata('desired_age', 'seniors')" ng-model="QC.seniors" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal3" data-dismiss="modal">Senior Cats (age 10+)</button>
+            <button ng-click="QC.answerdata('desired_age', 'any')" ng-model="QC.any" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal3" data-dismiss="modal">Any Age</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+   <!-- modal 3 content here -->
+
+    <div class="modal fade" id="modal3">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 3</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Would you like a cat with a certain type of coloring?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('desired_color', 'black')" ng-model="QC.black" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Black</button>
+            <button ng-click="QC.answerdata('desired_color', 'grey')" ng-model="QC.grey" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Black</button>
+            <button ng-click="QC.answerdata('desired_color', 'orange')" ng-model="QC.orange" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Orange</button>
+            <button ng-click="QC.answerdata('desired_color', 'white')" ng-model="QC.white" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >White</button>
+            <button ng-click="QC.answerdata('desired_color', 'tiger')" ng-model="QC.tiger" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Tabby/Tiger</button>
+            <button ng-click="QC.answerdata('desired_color', 'tortie')" ng-model="QC.tortie" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Tortie</button>
+            <button ng-click="QC.answerdata('desired_color', 'any')" ng-model="QC.any" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Any coloring</button>
+            <br>
+            <br>
+        <!--   <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
+          </div> -->
+          </div>
+        </div>
+      </div>
+   </div>
+
+  <!-- modal 4 content here -->
+
+    <div class="modal fade" id="modal4">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 4</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Would you like a long-haired or short-haired cat?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('desired_hair','short')" ng-model="QC.short" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal5" data-dismiss="modal" >Domestic Short Hair</button>
+            <button ng-click="QC.answerdata('desired_hair','long')" ng-model="QC.long" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal5" data-dismiss="modal" >Domestic Long hair</button>
+            <button ng-click="QC.answerdata('desired_hair','any')" ng-model="QC.any" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal5" data-dismiss="modal" >Doesn't Matter</button>
+            <br>
+            <br>
+            <span style="text-align: center;" ng-bind="QC.message"></span>
+          </div>
+        </div>
+      </div>
+   </div>
+
+
+  <!-- modal 5 content here -->
+
+      <div class="modal fade" id="modal5">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <p><h4 class="modal-title" style="text-align: center;">Question 5</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Do you have dogs in your home?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('dogs_in_home','true')" ng-model="QC.true" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal6" data-dismiss="modal" >Yes</button>
+            <button ng-click="QC.answerdata('dogs_in_home','false')" ng-model="QC.false" type="button"class="btn btn-success" data-toggle="modal" data-target="#modal6" data-dismiss="modal">No</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+
+     <!-- modal 6 content here -->
+
+      <div class="modal fade" id="modal6">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <p><h4 class="modal-title" style="text-align: center;">Question 6</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Do you have cats in your home?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('cats_in_home','true')" ng-model="QC.true" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal7" data-dismiss="modal" >Yes</button>
+            <button ng-click="QC.answerdata('cats_in_home','false')" ng-model="QC.false" type="button"class="btn btn-success" data-toggle="modal" data-target="#modal7" data-dismiss="modal">No</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+     <!-- modal 7 content here -->
+
+      <div class="modal fade" id="modal7">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <p><h4 class="modal-title" style="text-align: center;">Question 7</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Do you have other types of animals in your home?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('other_in_home','true')" ng-model="QC.true" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal8" data-dismiss="modal" >Yes</button>
+            <button ng-click="QC.answerdata('other_in_home','false')" ng-model="QC.false" type="button"class="btn btn-success" data-toggle="modal" data-target="#modal8" data-dismiss="modal">No</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+  <!-- modal 8 content here -->
+
+      <div class="modal fade" id="modal8">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 8</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Do you have (or plan to have) small children in your home?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('kids_in_home','true')" ng-model="QC.true" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal9" data-dismiss="modal" >Yes</button>
+            <button ng-click="QC.answerdata('kids_in_home','false')" ng-model="QC.false" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal9" data-dismiss="modal" >No</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+ <!-- modal 9 content here -->
+
+      <div class="modal fade" id="modal9">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+           <!--  <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button> -->
+            <p><h4 class="modal-title" style="text-align: center;">Question 9</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">What is the atmosphere in your home generally like?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('atmosphere_in_home','quiet')" ng-model="QC.quiet" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal10" data-dismiss="modal" >Quiet</button>
+            <button ng-click="QC.answerdata('atmosphere_in_home','loud')" ng-model="QC.loud" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal10" data-dismiss="modal" >Loud</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
+
+  <!-- modal 10 content here -->
+
+      <div class="modal fade" id="modal10">
+      <div class="modal-dialog">
+        <div class="modal-content">
+
+          <div class="modal-header">
+            <p><h4 class="modal-title" style="text-align: center;">And, Finally...</h4></p>
+            <br>
+            <p style="text-align: center; font-size: 18px;">Are you able to support a cat that has medical issues?</p>
+
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata('medical_acceptable','true')" ng-model="QC.true" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal11" data-dismiss="modal" >Yes</button>
+            <button ng-click="QC.answerdata('medical_acceptable','false')" ng-model="QC.false" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal11" data-dismiss="modal" >No</button>
+            <button ng-click="QC.answerdata('medical_acceptable','maybe')" ng-model="QC.maybe" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal11" data-dismiss="modal" >Maybe</button>
+
+          </div>
+        </div>
+      </div>
+   </div>
+
+
+   <!-- modal 11 content here -->
+
+    <div class="modal fade" id="modal11">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+             <p><h4 class="modal-title" style="text-align: center;">See Your Matches!</h4></p>
+            <br>
+          </div>
+
+          <div class="modal-body">
+            <button ng-click="QC.answerdata(answers)" type="button" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Submit!</button>
+          </div>
+        </div>
+      </div>
+   </div>
+<!-- vm.answerdata(answers) -->

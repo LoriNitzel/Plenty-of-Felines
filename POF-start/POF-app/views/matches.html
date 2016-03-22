@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-12 col-sm-12" style="text-align: center;">
+  <h2 class="welcome-title">Your <span class="titlebrand">Plenty of Felines</span> Matches</h2>
+  </div>
+</div>
+
+<div class="row" id="welcome-text" ng-repeat="cat in MC.getCats.data">
+  <div class="col-md-4 col-sm-12">
+    <p>{{cat.name}}</p>
+  </div>
+   <div class="col-md-4 col-sm-12">
+    <p>{{}}</p>
+  </div>
+   <div class="col-md-4 col-sm-12">
+    <p>{{}}</p>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-sm-12">
+    <button class="btn btn-default"><a href="/#allcats">See ALL Adoptable Cats</a></button>
+  </div>
+</div>

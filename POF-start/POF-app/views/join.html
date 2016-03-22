@@ -1,0 +1,69 @@
+    <div class="row" id="welcome-text">
+      <div class="col-md-offset-2 col-md-8 col-sm-12">
+        <h1 class="welcome-title">Welcome!</h1>
+        <p class="welcome-text"><span class="microbrand">Plenty of Felines</span> is a matchmaking service for adoptable cats and the humans looking to give them forever homes. We match cats with people by looking specifically at cats' characteristics and needs and matching those with the information we obtain when users fill out our short questionnaire.</p>
+        <p>Once you've filled out the questionnaire, we will give you a list of cats who we think could be your favorite new companions. All available cats are from the <a href="https://www.fccrsnc.org/" target="_blank">Fort Collins Cat Rescue</a>, and you can visit your matches at their facility on E. Mulberry.</p>
+        <h2 style="text-align: center;">Register as a User</h2>
+        <p style="text-align: center;">You will receive no emails at all from us, since this project is volunteer-run!</p>
+      
+      <div class="form-group">
+        <form name="signupForm">
+
+        <label>First Name</label>
+        <input type="text" name="firstname" required class="form-control" placeholder="First Name" id="firstname" ng-model="JC.firstname">
+        <br>
+
+        <label>Last Name</label>
+        <input type="text" name="lastname" required class="form-control" placeholder="Last Name" id="lastname" ng-model="JC.lastname">
+        <br>
+
+        <label>Email Address</label>
+        <input type="text" name="email" required class="form-control" placeholder="Email" id="email" ng-model="JC.email"  ng-minlength="3" ng-maxlength="255" ng-pattern="/^[a-z]+[a-z0-9._]+@[a-z]+\.[a-z.]{2,5}$/">
+        <span class="error" ng-show="signupForm.email.$error.required && signupForm.email.$touched">
+        Email is required.
+        </span>
+        <span class="error" ng-show="signupForm.email.$invalid && signupForm.email.$dirty">
+        Oops - try again! 
+        </span>
+        <br>
+
+        <label>Password</label>
+        <input type="password" name="password" required class="form-control" placeholder="Password" id="password" ng-model="JC.password" ng-minlength="7" ng-maxlength="15">
+        <span class="error" ng-show="signupForm.password.$error.required && signupForm.password.$touched">
+        Password is required.
+        </span>
+        <span class="error" ng-show="signupForm.password.$error.minlength && signupForm.password.$dirty">
+        Password needs to be between 7 - 15 characaters.
+        </span>
+        <br>
+        <br>      
+        
+        <button class="btn btn-default" ng-disabled="signupForm.$invalid" type="submit" ng-click="JC.signup(JC.firstname, JC.lastname, JC.email, JC.password)" ng-model="clicked" ng-init="clicked=true">Register!</button> 
+        <span ng-if="clicked">
+        Thank you for Joining!
+        <button class="btn btn-default" ng-click="JC.userQuestionnaire()">Take the Questionnaire!</button> 
+        </span>
+     </form>
+    </div>
+      
+<!-- modal content here  -->
+<!--     <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <p><h4 class="modal-title" style="text-align: center;">Thank you for Joining!</h4></p>
+                <br>
+            </div>
+            <div class="modal-body" style="margin-left: 150px;">
+                <button class="btn btn-success" data-toggle="modal" data-dismiss="modal"><a href="/#questions">Take the Questionnaire</a></button>
+            </div>
+        </div>
+      </div>
+    </div> -->
+      
+<!-- footer content here -->
+  
+    <br>
+        <h2 id="thanks" style="text-align: center;">Thank you for adopting homeless cats!</h2>
+      </div>
+    </div>

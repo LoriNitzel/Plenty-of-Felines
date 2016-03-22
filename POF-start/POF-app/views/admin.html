@@ -1,0 +1,22 @@
+<div class="row" id="welcome-text">
+  <div class="col-md-offset-2 col-md-8 col-sm-12">
+    <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
+    <div style="text-align: center;">
+      <h2>Admin Page</h2>
+    </div>
+  </div>
+</div>
+
+<span class="row" id="welcome-text">
+  <div class="col-md-4 col-sm-12" id="allcats" ng-repeat="cat in AC.cats.data" style="text-align: center;">
+    <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
+    <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
+    <p>Age: {{cat.age}}</p>
+    <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
+    <p><strong>About {{cat.name}}:</strong></p>
+    <p>{{cat.summary}}</p>
+    <p><a href="#/cats/{{cat.id}}">More...</a></p>
+    <button class="btn btn-default" ng-click="updateCat()">Update Cat</button>
+    <button class="btn btn-default" ng-click="deleteCat()">Delete Cat</button>
+  </div>
+</span>
