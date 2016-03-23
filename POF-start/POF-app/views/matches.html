@@ -4,20 +4,23 @@
   </div>
 </div>
 
-<div class="row" id="welcome-text" ng-repeat="cat in MC.getCats.data">
-  <div class="col-md-4 col-sm-12">
-    <p>{{cat.name}}</p>
+<span class="row" id="welcome-text">
+  <div class="col-md-4 col-sm-12" id="allcats" ng-repeat="cat in MAC.cats.data" style="text-align: center;">
+  <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
+    <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
+    <p>Age: {{cat.age}}</p>
+    <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
+    <p><strong>About {{cat.name}}:</strong></p>
+    <p>{{cat.summary}}</p>
+    <p><a href="#/cats/{{cat.id}}">More...</a></p>
   </div>
-   <div class="col-md-4 col-sm-12">
-    <p>{{}}</p>
-  </div>
-   <div class="col-md-4 col-sm-12">
-    <p>{{}}</p>
-  </div>
-</div>
+</span>
 
-<div class="row">
+
+
+
+<div class="row" style="text-align: center;">
   <div class="col-md-12 col-sm-12">
-    <button class="btn btn-default"><a href="/#allcats">See ALL Adoptable Cats</a></button>
+    <button class="btn btn-default" ng-click="MAC.getAll()">See ALL Adoptable Cats</a></button>
   </div>
 </div>

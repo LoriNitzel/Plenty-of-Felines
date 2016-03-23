@@ -26,22 +26,19 @@ angular.module('pofApp')
         controller: 'profileController as PC'
       })
 
-      .when('/users/:id/matches', {
+      .when('/users/matches', {
         templateUrl: 'views/matches.html',
-        controller: 'matchesController as MC'
+        controller: 'matchesController as MAC'
       })
 
-      .when('/users/:id/matches/:id', {
-        templateUrl: 'views/cats.html'
+      .when('/users/matches/:id', {
+        templateUrl: 'views/matchescats.html',
+        controller: 'matchesController as MAC'
       })
 
       .when('/questions', {
         templateUrl: 'views/questions.html', 
         controller: 'questionsController as QC'
-      })
-
-      .when('/questions/:id', {
-        templateUrl: 'views/questions2.html'
       })
 
       .when('/about', {
@@ -70,6 +67,11 @@ angular.module('pofApp')
       .when('/cats/admin/:id', {
         templateUrl: 'views/adminupdate.html',
         controller: 'allcatsController as AC'
+      })
+
+      .when('/logout', {
+        templateUrl: '',
+        controller: 'logoutController as LC'
       })
     
       .otherwise({

@@ -4,6 +4,9 @@
   <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
     <h1>Questionnaire</h1>
     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-top: 30px;">Question 1</a>
+    <br>
+    <input type="text" name="testingput">
+    <button ng-click="QC.answerdata(data)">Test</button>
   </div>
 </div>
 
@@ -273,7 +276,7 @@
           </div>
 
           <div class="modal-body">
-            <button ng-click="QC.answerdata(answers)" type="button" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Submit!</button>
+            <button ng-click="QC.answerdata(answers); QC.toMatches()" type="button" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Submit!</button>
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ angular.module('pofApp')
   .service('holdingService', ['$http', function($http){
     return {
       answerdata: function(answers){
-        return $http.post('http://localhost:3000/questions', answers)
+        return $http.put('http://localhost:3000/questions', answers)
         .then(function(response){
           console.log(response);
         }, function(error){
@@ -41,24 +41,15 @@ angular.module('pofApp')
       }
    }])
 
-
-//****** post user as a Guest in the database ******//
-
-// .service('guestSigninService', ['$http', function($http){
-//    return {
-//     addGuest: function(guestData) {
-//     return $http.post('http://localhost:3000/users', guestData);
-//   }
-// }
-// }]);
-
-
 //****** post User signup data when they register *****//
   
 .service('signupService', ['$http', function($http){
    return {
       signup: function(userData){
         return $http.post('http://localhost:3000/users', userData);
+        // .success(function(userData, status){
+        //   console.log(userData, status);
+        // })
     }
   }
  }])
@@ -94,8 +85,27 @@ angular.module('pofApp')
         return $http.delete('http://localhost:3000/users/' + param1);
       }
     }
-  }]);
+}])
+
+//******** GET Matches from Matches Database and Display on Matches Page ********//
+
+   .service('matchesService', ['$http', function($http){
+    return {
+      getMatches: function(){
+        return $http.get('http://localhost:3000/users/matches');
+      }
+    }
+  }]) 
 
 
+//****** post user as a Guest in the database ******//
+
+// .service('guestSigninService', ['$http', function($http){
+//    return {
+//     addGuest: function(guestData) {
+//     return $http.post('http://localhost:3000/users', guestData);
+//   }
+// }
+// }]);
 
 

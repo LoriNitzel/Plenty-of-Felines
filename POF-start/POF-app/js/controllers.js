@@ -1,13 +1,15 @@
 app.controller('mainController', ['$scope', mainController]);
-app.controller('matchesController', ['$scope', 'catsService', '$routeParams', matchesController]);
-app.controller('joinController', ['$scope', 'signupService', '$location', joinController]);
-// app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
+app.controller('matchesController', ['$scope', 'matchesService', '$routeParams', '$location', matchesController]);
+app.controller('joinController', ['$scope', 'signupService', '$window', '$location', joinController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', allcatsController]);
-app.controller('questionsController', ['$scope', 'holdingService', '$location', questionsController]);
+app.controller('questionsController', ['$scope', 'holdingService', '$routeParams','$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
 app.controller('signinController', ['$scope', 'signinService', '$window', '$location', signinController]);
+app.controller('logoutController', ['$scope', '$location', logoutController]);
+// app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
 
-//+++++++ MAIN CONTROLLER - NOT SURE WHAT IT DOES YET +++++++//
+
+//+++++++ MAIN CONTROLLER - FOR ENTRY PAGE +++++++//
 
 function mainController($scope){
   var vm = this;
@@ -15,20 +17,27 @@ function mainController($scope){
   vm.isLoggedin = function(){
     vm.show=true;
   }
-
-
 };
 
 //++++++  MAKE AND DISPLAY MATCHES CONTROLLER ++++++++//
 
-function matchesController($scope, catsService, $routeParams){
+function matchesController($scope, matchesService, $routeParams, $location){
   var vm = this;
+  vm.matchesService = matchesService;
+
+  matchesService.getMatches().then(function(matchdata){
+    console.log(matchdata);
+  })
+
+  vm.getAll = function(path){
+    $location.path('/cats');
+  }
 }
 
 
 //++++++ USER JOIN/REGISTER CONTROLLER ++++++++//
 
-function joinController($scope, signupService, $location){
+function joinController($scope, signupService, $window, $location){
   var vm = this;
   vm.signupService = signupService;
 
@@ -43,6 +52,11 @@ function joinController($scope, signupService, $location){
 
     signupService.signup(userData).then(function(response){
       console.log(response);
+      console.log(response.data.token);
+      $window.sessionStorage.token = response.data.token;
+      id = response.data.id;
+      // console.log(response.data.token);
+      // console.log(response.data.id);
     })
 
     vm.userQuestionnaire = function(path){
@@ -117,7 +131,13 @@ function profileController($scope, profileService, $routeParams, $location){
     vm.user = data.data;
   });
   }
- vm.showUser();
+  vm.showUser();
+  vm.seeMatches = function(path){
+    $location.path('/users/matches');
+  }
+  vm.qnaireAgain = function(path){
+    $location.path('/questions');
+  }
 }
 
 
@@ -155,8 +175,9 @@ function allcatsController($scope, catsService, indcatsService, $routeParams){
 
 //+++++++ CAPTURE ANSWERS TO QUESTIONS CONTROLLER ++++++//
 
-function questionsController($scope, holdingService, $location){
+function questionsController($scope, holdingService, $routeParams, $location){
   var vm = this;
+  vm.param1 = $routeParams.id;
   var answers = {};
 
   vm.openQuestions = function(){
@@ -168,16 +189,30 @@ function questionsController($scope, holdingService, $location){
   
   vm.answerdata = function(key, entry) {
     answers[key] = entry;
-      console.log(answers);
+      // console.log(answers);
 
       for (key in answers){
         holdingService.answerdata(answers).then(function(response){
-        console.log(response);
+        console.log(answers);
       });
       } 
     }
+
+  vm.toMatches = function(path){
+  $location.path('/users/matches');
+  }
 };
 
+//++++++++LOGOUT CONTROLLER +++++++++//
+
+function logoutController($location) {
+  var vm = this; 
+
+  vm.logout = function() {
+    Session.clear();
+    $location.path('/');
+  }
+};
 
 //+++++++ GUEST SIGN IN CONTROLLER +++++++//
 
