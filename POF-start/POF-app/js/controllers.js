@@ -12,7 +12,9 @@ app.controller('signinController', ['$scope', 'signinService', '$window', '$loca
 function mainController($scope){
   var vm = this;
  
-  //vm.loggedin -- ng-show stuff here! 
+  vm.isLoggedin = function(){
+    vm.show=true;
+  }
 
 
 };

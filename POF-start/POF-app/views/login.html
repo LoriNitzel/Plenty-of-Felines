@@ -1,5 +1,12 @@
-<div class="container-fluid full" style="width: 100%">
-  <div class="body">
+<div class="conatiner-fluid bigpic body"> 
+    <div class="row" style="height: 700px;">
+        <div class="col-md-12 col-sm-12">
+          <h1 class="title-index" style="text-align: center;">Plenty of Felines</h1>
+        </div>
+  
+
+
+  <!-- FIXED NAVBAR AT BOTTOM-->
    
   <nav class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
     <div class="container">
@@ -20,23 +27,23 @@
         </div>
         <!-- /.navbar-collapse -->
     </div>
-    <!-- /.container -->
-
   </nav>
   
+<!-- END MOBILE NAVBAR -->
+
 
 <!-- Page Content -->
-<div class="container">
+<!-- <div class="container">
     <div class="row">
         <div class="col-md-6 col-sm-12">
              <h1 class="title-index" style="text-align: center;">Plenty of Felines</h1>
+
         </div>
     </div>
+</div> -->
 
-    <!-- /.row -->
-</div>
 
-<!-- ==========modal under here -->
+<!-- ==========MODAL START HERE=============== -->
     <div class="modal fade" id="myModal">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -45,27 +52,28 @@
             <button type="button" class="close" data-dismiss="modal"  aria-label="Close" aria-hidden="true"><span aria-hidden="true"></span></button>
             <p><h4 class="modal-title" style="text-align: center;">Sign In</h4></p>
             <br>
-            <p style="text-align: center;">
-            <input type="text" name="email" placeholder="Email" ng-model="SC.email">
-            <input type="text" name="password" placeholder="Password" ng-model="SC.password"> 
-            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="SC.signin(SC.email, SC.password)">Sign in</button>
-            <img class="homecat" src="assets/img/blackcat.png"></p>
-            <p style="text-align: center;">Not registered with Plenty of Felines yet?</p> 
-            <p><button class="btn btn-default" data-dismiss="modal"  ng-click="SC.joinEnter()" style="margin-left: 35px;">Register here to save your matches!</button></p>
+            <p style="margin-left: 50px;">
+            <input type="text" class="textboxentry" name="email" placeholder="Email" ng-model="SC.email">
+            <input type="text" class="textboxentry" name="password" placeholder="Password" ng-model="SC.password"> 
+            <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="SC.signin(SC.email, SC.password)">Sign in</button>
+            <img class="homecat" src="assets/img/blackcat.png" style="margin-left:170px; margin-top: 10px; margin-bottom: 20px;"></p>
+            <p style="text-align: center; font-size: 18px;">Not registered with Plenty of Felines yet?</p> 
+            <p><button class="btn btn-info" data-dismiss="modal" ng-click="SC.joinEnter()" style="margin-left: 153px;">Register here to save your matches!</button></p>
 
           </div>
 
           <div class="modal-body">
-            <p><h4 class="modal-body-text" style="text-align: center;">Continue as a Guest  </h4></p><button type="button" class="btn btn-default" data-dismiss="modal" style="margin-left: 35px;" ng-click="SC.guestEnter()">Enter</button>
+            <p><h4 class="modal-body-text" style="text-align: center;">Continue as a Guest  </h4></p><button type="button" class="btn btn-warning" data-dismiss="modal" style="margin-left: 25px;" ng-click="SC.guestEnter()">Enter</button>
         <!--   <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Submit</button>
           </div> -->
           </div>
         </div>
       </div>
-
     </div>
 
-  <!-- /.container -->
- </div>
+<!-- ==================END MODAL HERE================= -->
+
+  </div>
 </div>
+

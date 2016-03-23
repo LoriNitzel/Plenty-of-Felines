@@ -1,24 +1,25 @@
 /* CSS for LOGIN/START PAGE */
 
-/*.body {
-  margin-top: 50px;
-  margin-bottom: 50px;
+.body {
+  margin: 0;
   background: none;
-  opacity: 0.8;
-}*/
+ /* opacity: 0.9;*/
+}
 
-.full {
+
+.bigpic {
   background: url('../assets/img/woman-cat.jpg') no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  height: 100%;
 }
-
 
 .title-index {
   display: block;
-  margin: 0 auto;
+  margin-top: 30px;
+  margin-left: 30px;
   font-family: 'Pacifico', cursive;
   font-size: 5em;
   color: #DAF7A6;
@@ -35,6 +36,17 @@
 .title-subtext a{
   color: #E7B223;
   text-decoration: none;
+}
+
+
+a.btn.btn-primary.btn-md{
+  height: 40px;
+  width: 75px;
+  margin-left: 30px;
+  margin-bottom: 10px;
+  background-color: #E7B223;
+  color: black;
+  font-size: 18px;
 }
 
 .homecat {
@@ -60,8 +72,25 @@
   font-size: 2.5em;
 }
 
+.textboxentry {
+  width: 200px;
+}
+
+.modal-backdrop.fade.in {
+opacity: 0;
+filter: alpha(opacity=50);
+}
+
+/*TRYING TO CHANGE ANIMATION SPEED OF MODALS BUT THIS DOESNT SEEM TO WORK*/
+
+.modal.fade:not(.in).right .modal-dialog {
+    -webkit-transform: translate3d(35%, 0, 0);
+    transform: translate3d(35%, 0, 0);
+}
+/*++++this makes the modal fly in from the left ++++*/
+
 /*.modal.fade {
-  left: -25%;
+  left: -10%;
   -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
      -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
        -o-transition: opacity 0.3s linear, left 0.3s ease-out;
@@ -69,7 +98,7 @@
 }
 
 .modal.fade.in {
-  left: 50%;
+  left: 2%;
 }*/
 
 
