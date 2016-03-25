@@ -28,77 +28,95 @@ function matchesController($scope, matchesService, $routeParams, $location){
   
   function getPoints(user, cats) {
     var totalPoints = 0;
+
     
     for (var i = 0; i < cats.length; i++){
       totalPoints = 0; 
+      var agePoints = 0;
+      var ageNum = cats[i].age;
       if (cats[i].gender == user.desired_gender){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 7;
       } 
       if (user.desired_gender == 'any'){
-        totalPoints = totalPoints + 5;        
+        totalPoints = totalPoints + 8;        
       } 
-      if (cats[i].age <= 1 && user.desired_age == "kittens"){
-        totalPoints = totalPoints + 5;
+      if (user.desired_age == 'kittens'){
+        ageNum = 1;
       }
-      if (cats[i].age > 1 && cats[i].age <= 4 && user.desired_age == "young-adults"){
-        totalPoints = totalPoints + 5;
+      if (user.desired_age == "young-adults"){
+        ageNum = 4;
+      } 
+      if (user.desired_age == "adults"){
+        ageNum = 7;
       }
-      if (cats[i].age > 4 && cats[i].age <= 10 && user.desired_age == "adults"){
-        totalPoints = totalPoints + 5;
-      }
-      if (cats[i].age > 10 && user.desired_age == "seniors"){
-        totalPoints = totalPoints + 5;
-      }
-      if (user.desired_age == "any"){
-        totalPoints = totalPoints + 5;
-      }
+      if (user.desired_age == "seniors"){
+        ageNum = 15;
+      } console.log(ageNum);
+        agePoints = 5 - Math.abs(cats[i].age - ageNum);
+        totalPoints = totalPoints + 1.5*agePoints;
+        console.log(agePoints, totalPoints);
+      // if (cats[i].age <= 1 && user.desired_age == "kittens"){
+      //   totalPoints = totalPoints + 5;
+      // }
+      // if (cats[i].age > 1 && cats[i].age <= 4 && user.desired_age == "young-adults"){
+      //   totalPoints = totalPoints + 5;
+      // }
+      // if (cats[i].age > 4 && cats[i].age <= 10 && user.desired_age == "adults"){
+      //   totalPoints = totalPoints + 5;
+      // }
+      // if (cats[i].age > 10 && user.desired_age == "seniors"){
+      //   totalPoints = totalPoints + 5;
+      // }
+      // if (user.desired_age == "any"){
+      //   totalPoints = totalPoints + 5;
+      // }
       if (user.desired_color == "any"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "black" && user.desired_color == "black"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "grey" && user.desired_color == "grey"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "orange" && user.desired_color == "orange"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "white" && user.desired_color == "white"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "tiger" && user.desired_color == "tiger"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].color == "tortie" && user.desired_color == "tortie"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].hair == "domestic short hair" && user.desired_hair == "short"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].hair == "domestic long hair" && user.desired_hair == "long"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (user.desired_hair == "any"){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 4;
       }
       if (cats[i].good_with_cats == user.cats_in_home){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 7;
       }
       if (cats[i].good_with_dogs == user.dogs_in_home){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 7;
       }
       if (cats[i].good_with_other == user.others_in_home){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 7;
       }
       if (cats[i].good_with_kids == user.kids_in_home){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 7;
       }
       if (cats[i].atmosphere_needed == user.atmosphere_in_home){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 6;
       }
       if (cats[i].medical_issue == user.medical_acceptable){
-        totalPoints = totalPoints + 5;
+        totalPoints = totalPoints + 10;
       }
       cats[i]['points'] = totalPoints; 
      }
@@ -185,6 +203,8 @@ function signinController($scope, signinService, $window, $location){
       vm.joinEnter = function(path){
         $location.path('/users');
       }
+
+      // vm.isLoggedin = true;
 
 }
 
