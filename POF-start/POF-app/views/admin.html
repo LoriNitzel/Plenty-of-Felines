@@ -1,14 +1,16 @@
-<div class="row" id="welcome-text">
-  <div class="col-md-offset-2 col-md-8 col-sm-12">
-    <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
-    <div style="text-align: center;">
-      <h2>Admin Page</h2>
-    </div>
+<div class="row">
+  <div class="col-md-12 col-sm-12" style="text-align: center;">
+  <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
+  <h3>Admin Page</h3>
+  <button class="btn btn-danger">Add a New Cat</button>
   </div>
 </div>
 
 <span class="row" id="welcome-text">
-  <div class="col-md-4 col-sm-12" id="allcats" ng-repeat="cat in AC.cats.data" style="text-align: center;">
+  <div class="col-md-4 col-sm-12" id="allcats" style="text-align: center;" ng-repeat="cat in AC.cats.data">
+  <br>
+    <button class="btn btn-default">Update</button>
+    <button class="btn btn-default" ng-click="AC.deleteCat(cat.id)">Delete</button>
     <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
     <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
     <p>Age: {{cat.age}}</p>
@@ -16,7 +18,7 @@
     <p><strong>About {{cat.name}}:</strong></p>
     <p>{{cat.summary}}</p>
     <p><a href="#/cats/{{cat.id}}">More...</a></p>
-    <button class="btn btn-default" ng-click="updateCat()">Update Cat</button>
-    <button class="btn btn-default" ng-click="deleteCat()">Delete Cat</button>
+    <hr>
   </div>
+  <div class="clearfix" ng-if="$index%3==2"></div>
 </span>

@@ -46,27 +46,28 @@ angular.module('pofApp')
         controller:'allcatsController as AC'
       })
 
+      .when('/cats/admin', {
+        templateUrl: 'views/admin.html', 
+        controller: 'adminController as AC'
+      })
+
+      .when('/cats/admin/create', {
+        templateUrl: 'views/admincreate.html',
+        controller: 'adminController as AC'
+       })
+
       .when('/cats/:id', {
         templateUrl: 'views/cats.html',
         controller:'allcatsController as AC'
       })
 
-      .when('/admin', {
-        templateUrl: 'views/admin.html', 
-        controller: 'allcatsController as AC'
-      })
-
       .when('/cats/admin/:id', {
         templateUrl: 'views/adminupdate.html',
-        controller: 'allcatsController as AC'
+        controller: 'adminController as AC'
       })
 
       .when('/about', {
         templateUrl: 'views/about.html'
-      })
-
-      .when('/contact', {
-        templateUrl: 'views/contact.html'
       })
 
       .when('/logout', {

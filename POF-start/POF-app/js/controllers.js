@@ -1,19 +1,22 @@
-app.controller('mainController', ['$scope', mainController]);
+app.controller('mainController', ['$scope', 'signinService', mainController]);
 app.controller('matchesController', ['$scope', 'matchesService', '$routeParams', '$location', matchesController]);
 app.controller('joinController', ['$scope', 'signupService', '$window', '$location', joinController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', '$location', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$routeParams','$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
 app.controller('signinController', ['$scope', 'signinService', '$window', '$location', signinController]);
-app.controller('navbarController', ['$scope', '$location', navbarController]);
+app.controller('navbarController', ['$scope', '$location', 'signinService', navbarController]);
+app.controller('adminController', ['$scope', '$location', 'catsService', 'indcatsService', '$routeParams', adminController]);
+
 // app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
 
 
 //+++++++ MAIN CONTROLLER - FOR ENTRY PAGE +++++++//
 
-function mainController($scope){
+function mainController($scope, signinService){
   var vm = this;
- 
+  vm.signinState = signinService.state;
+  console.log(vm.signinState);
   
 };
 
@@ -171,6 +174,10 @@ function joinController($scope, signupService, $window, $location){
       $location.path('/questions');
       }
   }
+
+   vm.backHome = function(path){
+    $location.path('/users');
+    }
 }
 
 //+++++++ USER SIGN IN CONTROLLER +++++++//
@@ -183,6 +190,7 @@ function signinController($scope, signinService, $window, $location){
   vm.signin = function(email, password){ 
     signinService.signin(email, password).then(function(response) {
         console.log(response);
+        signinService.state.isLoggedin = true;
         //get the token from the response and save it in sessionStorage or local storage
         $window.sessionStorage.token = response.data.token;
         id = response.data.id;
@@ -204,7 +212,7 @@ function signinController($scope, signinService, $window, $location){
         $location.path('/users');
       }
 
-      // vm.isLoggedin = true;
+     
 
 }
 
@@ -264,20 +272,6 @@ function allcatsController($scope, catsService, indcatsService, $routeParams, $l
     vm.cat = data.data;
   })
 
-  vm.updateCat = function(){
-    indcatsService.updateCat(vm.param1).then(function(data){
-    console.log(data);
-    vm.cat = data.data;
-  })
-  }
-
-  vm.deleteCat = function(){
-    indcatsService.deleteCat(vm.param1).then(function(data){
-    console.log(data);
-    vm.cat = data.data;
-  });
-  }
-
   vm.backtoMatches = function(path){
     $location.path('/users/matches');
   }
@@ -312,17 +306,66 @@ function questionsController($scope, holdingService, $routeParams, $location){
   }
 };
 
-//++++++++LOGOUT CONTROLLER +++++++++//
+//++++++++NAVBAR CONTROLLER +++++++++//
 
-function navbarController($location) {
+function navbarController($location, signinService) {
   var vm = this; 
   vm.logout = logout; 
+  vm.signinState = signinService.state;
 
   function logout(){
     delete $window.sessionStorage.token;
     $location.path('/');
   }
+
+  vm.toMatches = function(){
+    $location.path('/users/matches');
+  }
+
+  vm.backHome = function(path){
+    $location.path('/users');
+  }
 };
+
+//++++++++ADMIN CONTROLLER +++++++++//
+
+function adminController($scope, $location, catsService, indcatsService, $routeParams){
+  var vm = this; 
+  vm.param1 = $routeParams.id;
+  
+  catsService.getCats().then(function(catdata){
+    // console.log(catdata);
+    vm.cats = catdata;
+  })
+
+  indcatsService.showCats(vm.param1).then(function(data){
+    console.log(data);
+    vm.cat = data.data;
+  })
+
+  vm.updateCat = function(){
+    indcatsService.updateCat(vm.param1).then(function(data){
+    console.log(data);
+    vm.cat = data.data;
+  })
+  }
+
+  vm.deleteCat = function(cat_id){
+    indcatsService.deleteCat(cat_id).then(function(data){
+    console.log(data);
+    catsService.getCats().then(function(data){
+      vm.cats = data;
+    })
+  })
+  }
+
+  vm.toUpdate = function(path){
+    $location.path('/cats/admin/:id');
+  }
+
+};
+
+
 
 //+++++++ GUEST SIGN IN CONTROLLER +++++++//
 

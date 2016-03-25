@@ -3,7 +3,7 @@
 
   function footerdir() {
     return {
-      restrict: 'A',
+      restrict: 'E',
       replace: true,
       templateUrl: '/directives/footerdir.html'
     };
@@ -14,9 +14,9 @@
 
   function navbardir() {
     return {
-      restrict: 'A',
+      restrict: 'E',
       templateUrl: '/directives/navbardir.html',
-      controller: 'navbarController as NC'
+      // controller: 'navbarController as NC'
     };
   };
 

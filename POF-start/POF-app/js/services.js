@@ -21,7 +21,7 @@ angular.module('pofApp')
         return $http.put('http://localhost:3000/cats/admin/' + param1);
       },
       deleteCat: function(param1){
-        return $http.delete('http://localhost:3000/cats/delete/' + param1);
+        return $http.delete('http://localhost:3000/cats/admin/delete/' + param1);
     }
   }
 }])
@@ -59,6 +59,7 @@ angular.module('pofApp')
 
 .service('signinService', ['$http', function($http){
   return {
+    state: {isLoggedin: false},
     signin: function(email, password){
       return $http.post('http://localhost:3000/login', {"email": email, "password": password})
        .then(function(response){
