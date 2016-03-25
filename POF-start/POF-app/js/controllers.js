@@ -1,11 +1,11 @@
 app.controller('mainController', ['$scope', mainController]);
 app.controller('matchesController', ['$scope', 'matchesService', '$routeParams', '$location', matchesController]);
 app.controller('joinController', ['$scope', 'signupService', '$window', '$location', joinController]);
-app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', allcatsController]);
+app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', '$location', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$routeParams','$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
 app.controller('signinController', ['$scope', 'signinService', '$window', '$location', signinController]);
-app.controller('logoutController', ['$scope', '$location', logoutController]);
+app.controller('navbarController', ['$scope', '$location', navbarController]);
 // app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
 
 
@@ -14,25 +14,115 @@ app.controller('logoutController', ['$scope', '$location', logoutController]);
 function mainController($scope){
   var vm = this;
  
-  vm.isLoggedin = function(){
-    vm.show=true;
-  }
+  
 };
 
 //++++++  MAKE AND DISPLAY MATCHES CONTROLLER ++++++++//
 
 function matchesController($scope, matchesService, $routeParams, $location){
   var vm = this;
+  var user = {};
+  var cats;
   vm.matchesService = matchesService;
 
+  
+  function getPoints(user, cats) {
+    var totalPoints = 0;
+    
+    for (var i = 0; i < cats.length; i++){
+      totalPoints = 0; 
+      if (cats[i].gender == user.desired_gender){
+        totalPoints = totalPoints + 5;
+      } 
+      if (user.desired_gender == 'any'){
+        totalPoints = totalPoints + 5;        
+      } 
+      if (cats[i].age <= 1 && user.desired_age == "kittens"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].age > 1 && cats[i].age <= 4 && user.desired_age == "young-adults"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].age > 4 && cats[i].age <= 10 && user.desired_age == "adults"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].age > 10 && user.desired_age == "seniors"){
+        totalPoints = totalPoints + 5;
+      }
+      if (user.desired_age == "any"){
+        totalPoints = totalPoints + 5;
+      }
+      if (user.desired_color == "any"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "black" && user.desired_color == "black"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "grey" && user.desired_color == "grey"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "orange" && user.desired_color == "orange"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "white" && user.desired_color == "white"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "tiger" && user.desired_color == "tiger"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].color == "tortie" && user.desired_color == "tortie"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].hair == "domestic short hair" && user.desired_hair == "short"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].hair == "domestic long hair" && user.desired_hair == "long"){
+        totalPoints = totalPoints + 5;
+      }
+      if (user.desired_hair == "any"){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].good_with_cats == user.cats_in_home){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].good_with_dogs == user.dogs_in_home){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].good_with_other == user.others_in_home){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].good_with_kids == user.kids_in_home){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].atmosphere_needed == user.atmosphere_in_home){
+        totalPoints = totalPoints + 5;
+      }
+      if (cats[i].medical_issue == user.medical_acceptable){
+        totalPoints = totalPoints + 5;
+      }
+      cats[i]['points'] = totalPoints; 
+     }
+     // console.log(cats);
+     var catsSorted = cats.sort(function(a,b){return b.points - a.points});
+      console.log((catsSorted)); 
+    vm.topFive = catsSorted.slice(0,6);
+    console.log(vm.topFive);
+  }
+ 
+  
   matchesService.getMatches().then(function(matchdata){
-    console.log(matchdata);
+    user = matchdata.data.user;
+    cats = matchdata.data.model;
+    getPoints(user, cats); 
   })
+ 
+
 
   vm.getAll = function(path){
     $location.path('/cats');
   }
-}
+
+};
 
 
 //++++++ USER JOIN/REGISTER CONTROLLER ++++++++//
@@ -71,7 +161,7 @@ function signinController($scope, signinService, $window, $location){
 
   var vm = this;
   var id;
-  vm.logout = logout; 
+  
   vm.signin = function(email, password){ 
     signinService.signin(email, password).then(function(response) {
         console.log(response);
@@ -87,9 +177,6 @@ function signinController($scope, signinService, $window, $location){
         console.error('something went wrong!');
       });
   }
-      function logout(){
-        delete $window.sessionStorage.token;
-      }
       
       vm.guestEnter = function(path){
         $location.path('/guest');
@@ -143,7 +230,7 @@ function profileController($scope, profileService, $routeParams, $location){
 
 //++++++ DISPLAY CATS CONTROLLER ++++++++//
 
-function allcatsController($scope, catsService, indcatsService, $routeParams){
+function allcatsController($scope, catsService, indcatsService, $routeParams, $location){
   var vm = this; 
   vm.param1 = $routeParams.id;
   
@@ -170,6 +257,10 @@ function allcatsController($scope, catsService, indcatsService, $routeParams){
     vm.cat = data.data;
   });
   }
+
+  vm.backtoMatches = function(path){
+    $location.path('/users/matches');
+  }
 }
 
 
@@ -177,7 +268,6 @@ function allcatsController($scope, catsService, indcatsService, $routeParams){
 
 function questionsController($scope, holdingService, $routeParams, $location){
   var vm = this;
-  vm.param1 = $routeParams.id;
   var answers = {};
 
   vm.openQuestions = function(){
@@ -191,25 +281,25 @@ function questionsController($scope, holdingService, $routeParams, $location){
     answers[key] = entry;
       // console.log(answers);
 
-      for (key in answers){
         holdingService.answerdata(answers).then(function(response){
         console.log(answers);
       });
-      } 
-    }
+    } 
+    
 
-  vm.toMatches = function(path){
+  vm.toMatches = function(){
   $location.path('/users/matches');
   }
 };
 
 //++++++++LOGOUT CONTROLLER +++++++++//
 
-function logoutController($location) {
+function navbarController($location) {
   var vm = this; 
+  vm.logout = logout; 
 
-  vm.logout = function() {
-    Session.clear();
+  function logout(){
+    delete $window.sessionStorage.token;
     $location.path('/');
   }
 };

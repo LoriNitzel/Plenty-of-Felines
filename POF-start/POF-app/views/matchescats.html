@@ -1,6 +1,6 @@
  <div class="row" style="margin: auto;">
   <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center;">
-    <h1>{{MAC.cat.name}}</h1>
+    <h1>{{MAC.cats.name}}</h1>
     <div class="carousel__container">
       <div class="carousel__item">
         <img src="{{MAC.cat.photo}}" class="carousel__image">
@@ -23,4 +23,4 @@
 
 <div class="row">
   <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center; margin-top: 30px;">
-  <button class="btn btn-default">Back to Matches</button>
+  <button class="btn btn-default" ng-click="MAC.backtoMatches()">Back to Matches</button>

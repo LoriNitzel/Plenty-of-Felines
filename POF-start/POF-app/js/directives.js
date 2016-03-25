@@ -15,7 +15,8 @@
   function navbardir() {
     return {
       restrict: 'A',
-      templateUrl: '/directives/navbardir.html'
+      templateUrl: '/directives/navbardir.html',
+      controller: 'navbarController as NC'
     };
   };
 

@@ -95,7 +95,7 @@ angular.module('pofApp')
         return $http.get('http://localhost:3000/users/matches');
       }
     }
-  }]) 
+  }]);
 
 
 //****** post user as a Guest in the database ******//

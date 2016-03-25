@@ -10,20 +10,15 @@ angular.module('pofApp')
         templateUrl : 'views/welcome.html',
         controller: 'questionsController as QC'
       })
+
+      .when('/questions', {
+        templateUrl: 'views/questions.html', 
+        controller: 'questionsController as QC'
+      })
     
       .when('/users', {
         templateUrl: 'views/join.html',
         controller: 'joinController as JC'
-      })
-
-      .when('/users/:id', {
-        templateUrl: 'views/profile.html',
-        controller: 'profileController as PC'
-      })
-
-      .when('/users/edit/:id', {
-        templateUrl: 'views/edit.html',
-        controller: 'profileController as PC'
       })
 
       .when('/users/matches', {
@@ -36,17 +31,14 @@ angular.module('pofApp')
         controller: 'matchesController as MAC'
       })
 
-      .when('/questions', {
-        templateUrl: 'views/questions.html', 
-        controller: 'questionsController as QC'
+      .when('/users/:id', {
+        templateUrl: 'views/profile.html',
+        controller: 'profileController as PC'
       })
 
-      .when('/about', {
-        templateUrl: 'views/about.html'
-      })
-
-      .when('/contact', {
-        templateUrl: 'views/contact.html'
+      .when('/users/edit/:id', {
+        templateUrl: 'views/edit.html',
+        controller: 'profileController as PC'
       })
 
       .when('/cats', {
@@ -67,6 +59,14 @@ angular.module('pofApp')
       .when('/cats/admin/:id', {
         templateUrl: 'views/adminupdate.html',
         controller: 'allcatsController as AC'
+      })
+
+      .when('/about', {
+        templateUrl: 'views/about.html'
+      })
+
+      .when('/contact', {
+        templateUrl: 'views/contact.html'
       })
 
       .when('/logout', {

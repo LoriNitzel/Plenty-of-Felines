@@ -22,9 +22,8 @@
               </div>
               <div class="row">
                 <div class="col-md-6">
-                  <span class="text-muted">Email:</span> {{PC.user.email}}<br>
-                  <span class="text-muted">Password:</span> {{PC.user.password}}<br>
-                  <small class="text-muted">Profile Created: {{PC.user.createdAt}}</small>
+                  <p style="width: 300px;"><span class="text-muted">Email:</span> {{PC.user.email}}</p>
+                  <!-- <p style="width: 300px;"><span class="text-muted">Password:</span> {{PC.user.password}}</p> --><br>
                 </div>
               </div>
             </div>
@@ -48,7 +47,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12" style="text-align:center;">
-        <button class="btn btn-default" ng-click="PC.qnaireAgain()"><i class="glyphicon glyphicon-check"> Take the Questionnaire Again!</i></button>
+        <button class="btn btn-warning" ng-click="PC.qnaireAgain()"><i class="glyphicon glyphicon-check"> Take the Questionnaire Again!</i></button>
     </div>
   </div>
 </div>

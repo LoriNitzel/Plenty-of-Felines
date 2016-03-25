@@ -5,8 +5,6 @@
     <h1>Questionnaire</h1>
     <a class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" style="margin-top: 30px;">Question 1</a>
     <br>
-    <input type="text" name="testingput">
-    <button ng-click="QC.answerdata(data)">Test</button>
   </div>
 </div>
 
@@ -79,7 +77,7 @@
 
           <div class="modal-body">
             <button ng-click="QC.answerdata('desired_color', 'black')" ng-model="QC.black" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Black</button>
-            <button ng-click="QC.answerdata('desired_color', 'grey')" ng-model="QC.grey" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Black</button>
+            <button ng-click="QC.answerdata('desired_color', 'grey')" ng-model="QC.grey" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Grey</button>
             <button ng-click="QC.answerdata('desired_color', 'orange')" ng-model="QC.orange" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Orange</button>
             <button ng-click="QC.answerdata('desired_color', 'white')" ng-model="QC.white" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >White</button>
             <button ng-click="QC.answerdata('desired_color', 'tiger')" ng-model="QC.tiger" type="button" class="btn btn-success" data-toggle="modal" data-target="#modal4" data-dismiss="modal" >Tabby/Tiger</button>
@@ -276,7 +274,7 @@
           </div>
 
           <div class="modal-body">
-            <button ng-click="QC.answerdata(answers); QC.toMatches()" type="button" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Submit!</button>
+            <button ng-click="QC.toMatches()" type="button" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Submit!</button>
           </div>
         </div>
       </div>
