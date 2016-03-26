@@ -159,7 +159,6 @@ function joinController($scope, signupService, $window, $location){
       "email": vm.email,
       "password": vm.password
     };
-    // console.log(newData);
 
     signupService.signup(userData).then(function(response){
       console.log(response);
@@ -196,7 +195,7 @@ function signinController($scope, signinService, $window, $location){
         id = response.data.id;
         console.log(response.data.token);
         console.log(response.data.id);
-        $location.path('/users/' + id);
+        $location.path('/users/matches');
 
       })
       .catch(function() {
@@ -339,28 +338,79 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
   })
 
   indcatsService.showCats(vm.param1).then(function(data){
-    console.log(data);
+    // console.log(data);
     vm.cat = data.data;
   })
 
+  vm.createCat = function(){
+    var newCatData = {
+      "FCCRSNC_id": vm.id,
+      "name": vm.name,
+      "photo": vm.photo,
+      "photo2": vm.photo2,
+      "photo3": vm.photo3,
+      "color": vm.color,
+      "hair": vm.hair,
+      "age": vm.age,
+      "medical_issue": vm.medical,
+      "gender": vm.gender,
+      "good_with_cats": vm.good_cats,
+      "good_with_dogs": vm.good_dogs,
+      "good_with_kids": vm.kids,
+      "good_with_other": vm.other,
+      "atmosphere_needed": vm.atmos,
+      "general_characteristics": vm.info,
+      "summary": vm.summary
+    };
+
+    indcatsService.createCat(newCatData).then(function(response){
+      // console.log(response);
+
+    })
+  }
+
   vm.updateCat = function(){
-    indcatsService.updateCat(vm.param1).then(function(data){
+    var updateCatData = {
+      "FCCRSNC_id": vm.id,
+      "name": vm.name,
+      "photo": vm.photo,
+      "photo2": vm.photo2,
+      "photo3": vm.photo3,
+      "color": vm.color,
+      "hair": vm.hair,
+      "age": vm.age,
+      "medical_issue": vm.medical,
+      "gender": vm.gender,
+      "good_with_cats": vm.good_cats,
+      "good_with_dogs": vm.good_dogs,
+      "good_with_kids": vm.kids,
+      "good_with_other": vm.other,
+      "atmosphere_needed": vm.atmos,
+      "general_characteristics": vm.info,
+      "summary": vm.summary
+    };
+
+    indcatsService.updateCat(vm.param1, updateCatData).then(function(data){
     console.log(data);
-    vm.cat = data.data;
+    // vm.cat = data;
   })
   }
 
   vm.deleteCat = function(cat_id){
     indcatsService.deleteCat(cat_id).then(function(data){
-    console.log(data);
+    // console.log(data);
     catsService.getCats().then(function(data){
       vm.cats = data;
     })
   })
   }
 
-  vm.toUpdate = function(path){
-    $location.path('/cats/admin/:id');
+  vm.toUpdate = function(cat_id){
+    $location.path('/cats/admin/' + cat_id);
+  }
+
+  vm.toCreate = function(path){
+    $location.path('/cats/admin/create');
   }
 
 };

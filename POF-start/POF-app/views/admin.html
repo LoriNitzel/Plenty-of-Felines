@@ -2,15 +2,15 @@
   <div class="col-md-12 col-sm-12" style="text-align: center;">
   <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
   <h3>Admin Page</h3>
-  <button class="btn btn-danger">Add a New Cat</button>
+  <button class="btn btn-danger" ng-click="AC.toCreate()">Add a New Cat</button>
   </div>
 </div>
 
 <span class="row" id="welcome-text">
   <div class="col-md-4 col-sm-12" id="allcats" style="text-align: center;" ng-repeat="cat in AC.cats.data">
   <br>
-    <button class="btn btn-default">Update</button>
-    <button class="btn btn-default" ng-click="AC.deleteCat(cat.id)">Delete</button>
+    <button class="btn btn-default" ng-click="AC.toUpdate(cat.id)">Edit {{cat.name}}</button>
+    <button class="btn btn-default" ng-click="AC.deleteCat(cat.id)">Delete {{cat.name}}</button>
     <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
     <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
     <p>Age: {{cat.age}}</p>

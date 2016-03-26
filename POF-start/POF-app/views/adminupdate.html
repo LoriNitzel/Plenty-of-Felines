@@ -2,18 +2,51 @@
   <div class="col-md-offset-2 col-md-8 col-sm-12">
     <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
     <div style="text-align: center;">
-      <h2>Admin Update Page</h2>
+      <h2>Admin Edit Page</h2>
     </div>
   </div>
 </div>
 
- <div class="row" style="margin: auto;">
-  <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center;">
-    <h1>Update Name: {{AC.cat.name}}</h1>
-    <h1>Update Photos: </h1>
-    <h1>Update Age: </h1>
-    <h1>Update Description: </h1>
-    <h1>Update Medical: </h1>
-    <h1>Update ...</h1>
-  </div>
+<div class="row" style="text-align: center;">
+  <div class="col-md-offset-4 col-md-4 col-sm-12" style="text-align: center;">
+    <img class="catpics" src="{{AC.cat.photo}}"/>
+      <h2>Edit {{AC.cat.name}}: </h2>
+        <div class="form-group">
+          <form name="updatecatForm">
+
+            <h4>Name:</h4>
+            <input type= "text" placeholder="{{AC.cat.name}}" name="name" ng-model="AC.name">
+            <h4>Petango ID:</h4>
+            <input type= "text" name="id" placeholder="{{AC.cat.FCCRSNC_id}}" ng-model="AC.id">
+            <h4>Photos:</h4>
+            <input type= "text" name= "photo" placeholder="URL" style="width: 400px;" ng-model="AC.photo">
+            <h4>Photos:</h4>
+            <input type= "text" name= "photo2" placeholder="URL" style="width: 400px;" placeholder="URL" ng-model="AC.photo2">
+            <h4>Photos:</h4>
+            <input type= "text" name= "photo3" placeholder="URL" style="width: 400px;" placeholder="URL" ng-model="AC.photo3">
+            <h4>Age:</h4>
+            <input type= "text" name= "age" style="width: 40px;" placeholder="{{AC.cat.age}}" ng-model="AC.age">
+            <h4>Medical Issue: </h4>
+            <input type= "text" name="medical" style="width: 60px;" placeholder="{{AC.cat.medical_issue}}" ng-model="AC.medical">
+            <h4>Good With Cats: </h4>
+            <input type= "text" name="good_cats" style="width: 60px;" placeholder="{{AC.cat.good_with_cats}}" ng-model="AC.good_cats">
+            <h4>Good With Dogs:</h4>
+            <input type= "text" name="good_dogs" style="width: 60px;" placeholder="{{AC.cat.good_with_dogs}}" ng-model="AC.good_dogs">
+            <h4>Good With Kids: </h4>
+            <input type= "text" name="kids" style="width: 60px;" placeholder="{{AC.cat.good_with_kids}}" ng-model="AC.kids">
+            <h4>Good With Other: </h4>
+            <input type= "text" name="other" style="width: 60px;" placeholder="{{AC.cat.good_with_other}}" ng-model="AC.other">
+            <h4>Atmosphere Needed:</h4>
+            <input type= "text" name="atmos" style="width: 60px;" placeholder="{{AC.cat.atmosphere_needed}}" ng-model="AC.atmos">
+            <h4>Description:</h4>
+            <textarea name= "information" rows="12" columns="10" style="width: 400px;" placeholder="{{AC.cat.general_characteristics}}" ng-model="AC.info"></textarea>
+            <h4>Summary:</h4> 
+            <textarea name ="summary" rows="7" style="width: 400px;" placeholder="{{AC.cat.summary}}"></textarea>
+            <br>
+            <br>
+            <button class="btn btn-warning" ng-click="AC.updateCat(cat.id)" ng-model="AC.summary">Update {{AC.cat.name}}!</button>
+            <br>
+        </form>
+      </div>
+    </div>
 </div>

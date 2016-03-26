@@ -4,3 +4,49 @@
   <h3>Add a New Cat</h3>
   </div>
 </div>
+<br>
+<br>
+<div class="row">
+  <div class="col-md-offset-4 col-md-4 col-sm-12" style="text-align: center;">
+    <div class="form-group">
+      <form name="createcatForm">
+        <p><label>Cat's Petango ID</label><input type="text" name="id" required class="form-control" placeholder="Petango ID" ng-model="AC.id"></p>
+        <br>
+        <p><label>Cat's Name</label><input type="text" name="name" required class="form-control" placeholder="Name" id="name" ng-model="AC.name"></p>
+        <br>
+        <p><label>Cat's Photo #1 URL</label><input type="text" name="photo" required class="form-control" placeholder="Photo #1" id="photo1" ng-model="AC.photo"></p>
+        <br>
+        <p><label>Cat's Photo #2 URL</label><input type="text" name="photo2" required class="form-control" placeholder="Photo #2" id="photo1" ng-model="AC.photo2"></p>
+        <br>
+        <p><label>Cat's Photo #3 URL</label><input type="text" name="photo3" required class="form-control" placeholder="Photo #3" id="photo1" ng-model="AC.photo3"></p>
+        <br>
+        <p><label>Cat's Color (options: orange, white, black, grey, tiger, tortie)</label><input type="text" name="color" required class="form-control" placeholder="Color" id="color" ng-model="AC.color"></p>
+        <br>
+        <p><label>Cat's Hair Type (options: domestic short hair, domestic long hair)</label><input type="text" name="hair" required class="form-control" placeholder="Hair Type" id="hair" ng-model="AC.hair"></p>
+        <br>
+        <p><label>Cat's Age (in whole numbers; if kitten, use either 0 or 1)</label><input type="text" name="age" required class="form-control" placeholder="Age" id="age" ng-model="AC.age"></p>
+        <br>
+        <p><label>Does Cat have a Medical Issue? (True or False)</label><input type="text" name="medical" required class="form-control" placeholder="Medical" id="medical" ng-model="AC.medical"></p>
+        <br>
+        <p><label>Cat's Gender</label><input type="text" name="gender" required class="form-control" placeholder="Male or Female" id="gender" ng-model="AC.gender"></p>
+        <br>
+        <p><label>Is Cat good with Cats? (True or False)</label><input type="text" name="good_cats" required class="form-control" placeholder="Good with other Cats?" id="good_cats" ng-model="AC.good_cats"></p>
+        <br>
+        <p><label>Is Cat good with Dogs? (True or False)</label><input type="text" name="good_dogs" required class="form-control" placeholder="Good with Dogs?" id="good_dogs" ng-model="AC.good_dogs"></p>
+        <br>
+        <p><label>Is Cat good with Kids? (True or False)</label><input type="text" name="kids" required class="form-control" placeholder="Good with Kids?" id="kids" ng-model="AC.kids"></p>
+        <br>
+        <p><label>Is Cat good with Other Animals? (True or False)</label><input type="text" name="other" required class="form-control" placeholder="Good with Other Animals?" id="other" ng-model="AC.other"></p>
+        <br>
+        <p><label>What type of atmosphere does Cat need? (options: quiet, loud, any)</label><input type="text" name="atmos" required class="form-control" placeholder="Atmosphere?" id="atmos" ng-model="AC.atmos"></p>
+        <br>
+        <p><label>Information about Cat from Petango (unabridged) </label><textarea rows="15" sname="info" required class="form-control" placeholder="Information" id="info" ng-model="AC.info"></textarea></p>
+        <br>
+        <p><label>Short Summary of Info from Petango </label><textarea rows="6" name="summary" required class="form-control" placeholder="Summary" id="summary" ng-model="AC.summary"></textarea></p>
+        <br>
+
+        <button class="btn btn-info" type="submit" ng-click="AC.createCat(AC.id, AC.name, AC.photo, AC.photo2, AC.photo3, AC.color, AC.hair, AC.age, AC.medical, AC.gender, AC.good_cats, AC.good_dogs, AC.good_others, AC.atmos, AC.info, AC.summary)" ng-model="clicked" ng-init="clicked=true">Add Cat!</button> 
+    </form>
+    </div>
+  </div>
+</div>

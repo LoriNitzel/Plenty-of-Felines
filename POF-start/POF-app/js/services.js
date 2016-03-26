@@ -17,8 +17,11 @@ angular.module('pofApp')
       showCats: function(param1){
         return $http.get('http://localhost:3000/cats/' + param1);
       },
-      updateCat: function(param1){
-        return $http.put('http://localhost:3000/cats/admin/' + param1);
+      createCat: function(newCatData){
+        return $http.post('http://localhost:3000/cats/admin/create', newCatData);
+      },
+      updateCat: function(param1, updateCatData){
+        return $http.put('http://localhost:3000/cats/admin/' + param1, updateCatData);
       },
       deleteCat: function(param1){
         return $http.delete('http://localhost:3000/cats/admin/delete/' + param1);
