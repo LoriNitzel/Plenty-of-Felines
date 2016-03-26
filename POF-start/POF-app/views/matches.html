@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" style="padding-top: 60px;">
   <div class="col-md-12 col-sm-12" style="text-align: center;">
   <h2 class="welcome-title">Your <span class="titlebrand">Plenty of Felines</span> Matches</h2>
   </div>
@@ -11,7 +11,7 @@
     <p>Age: {{cat.age}}</p>
     <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
     <p><strong>About {{cat.name}}:</strong></p>
-    <p>{{cat.summary}}</p>
+    <p style="margin-left: 25%; margin-right: 25%;">{{cat.summary}}</p>
     <p><a href="#/cats/{{cat.id}}">More...</a></p>
   </div>
 </div>
@@ -21,6 +21,6 @@
 
 <div class="row" style="text-align: center;">
   <div class="col-md-12 col-sm-12">
-    <button class="btn btn-warning" style="margin-bottom: 30px;" ng-click="MAC.getAll()">See ALL Adoptable Cats</button>
+    <button class="btn btn-warning" style="margin-bottom: 130px;" ng-click="MAC.getAll()">See ALL Adoptable Cats</button>
   </div>
 </div>

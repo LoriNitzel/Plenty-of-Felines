@@ -1,4 +1,23 @@
-<div class="row">
+ <nav class="navbar navbar-default navbar-fixed-top navbar-inverse" ng-controller="navbarController as NC">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" id="navtitle" href="" ng-click="NC.backHome()">Plenty of Felines</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav pull-right">
+            <li><a href="/#cats/admin">ADMIN</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>  
+
+<div class="row" style="padding-top: 60px;">
   <div class="col-md-12 col-sm-12" style="text-align: center;">
   <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
   <h3>Add a New Cat</h3>
@@ -50,3 +69,14 @@
     </div>
   </div>
 </div>
+
+
+
+<div class="row" style="margin-bottom: 100px;">
+</div>
+
+ <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <p class="text-muted"><p class="title-subtext" style="text-align: center;">Find Your Purrfect Feline Friend</p></p>
+      </div>
+   </div>

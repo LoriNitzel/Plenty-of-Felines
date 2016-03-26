@@ -5,7 +5,7 @@ app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','
 app.controller('questionsController', ['$scope', 'holdingService', '$routeParams','$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
 app.controller('signinController', ['$scope', 'signinService', '$window', '$location', signinController]);
-app.controller('navbarController', ['$scope', '$location', 'signinService', navbarController]);
+app.controller('navbarController', ['$scope', '$location', 'signinService', '$window', navbarController]);
 app.controller('adminController', ['$scope', '$location', 'catsService', 'indcatsService', '$routeParams', adminController]);
 
 // app.controller('guestController', ['$scope', 'guestSigninService', guestController]);
@@ -307,7 +307,7 @@ function questionsController($scope, holdingService, $routeParams, $location){
 
 //++++++++NAVBAR CONTROLLER +++++++++//
 
-function navbarController($location, signinService) {
+function navbarController($location, signinService, $window) {
   var vm = this; 
   vm.logout = logout; 
   vm.signinState = signinService.state;
@@ -317,7 +317,7 @@ function navbarController($location, signinService) {
     $location.path('/');
   }
 
-  vm.toMatches = function(){
+  vm.toMatches = function(path){
     $location.path('/users/matches');
   }
 
