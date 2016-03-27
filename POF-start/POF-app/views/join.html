@@ -26,7 +26,7 @@
         <p style="text-align: center;">You will receive no emails at all from us, since this project is volunteer-run!</p>
       
       <div class="form-group">
-        <form name="signupForm">
+        <form name="signupForm" style="margin-left: 20%; margin-right: 20%;">
 
         <label>First Name</label>
         <input type="text" name="firstname" required class="form-control" placeholder="First Name" id="firstname" ng-model="JC.firstname">
@@ -57,10 +57,10 @@
         <br>
         <br>      
         
-        <button class="btn btn-default" ng-disabled="signupForm.$invalid" type="submit" ng-click="JC.signup(JC.firstname, JC.lastname, JC.email, JC.password)" ng-model="clicked" ng-init="clicked=true">Register!</button> 
-        <span ng-if="clicked">
+        <button class="btn btn-warning" ng-disabled="signupForm.$invalid" type="submit" ng-click="JC.signup(JC.firstname, JC.lastname, JC.email, JC.password); JC.showClick()">Register!</button> 
+        <span ng-show="JC.joinClick" style="margin-left: 20px;">
         Thank you for Joining!
-        <button class="btn btn-default" ng-click="JC.userQuestionnaire()">Take the Questionnaire!</button> 
+        <button style="margin-left: 10px;" class="btn btn-info" ng-click="JC.userQuestionnaire()">Take the Questionnaire!</button> 
         </span>
      </form>
     </div>

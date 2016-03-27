@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="navtitle" href="" ng-click="NC.backHome()">Plenty of Felines</a>
+          <a class="navbar-brand" id="navtitle" href="#/" ng-click="NC.backHome()">Plenty of Felines</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
@@ -61,10 +61,10 @@
             <h4>Description:</h4>
             <textarea name= "information" rows="12" columns="10" style="width: 350px;" placeholder="{{AC.cat.general_characteristics}}" ng-model="AC.info"></textarea>
             <h4>Summary:</h4> 
-            <textarea name ="summary" rows="7" style="width: 350px;" placeholder="{{AC.cat.summary}}"></textarea>
+            <textarea name ="summary" rows="7" style="width: 350px;" placeholder="{{AC.cat.summary}}" ng-model="AC.summary"></textarea>
             <br>
             <br>
-            <button class="btn btn-warning" ng-click="AC.updateCat(cat.id)" ng-model="AC.summary">Update {{AC.cat.name}}!</button>
+            <button class="btn btn-warning" ng-click="AC.updateCat(cat.id)" data-toggle="modal" data-target="#myModal">Update {{AC.cat.name}}!</button>
             <br>
         </form>
       </div>
@@ -72,6 +72,25 @@
 </div>
 <div class="row" style="margin-bottom: 100px;">
 </div>
+
+<!-- **** MODAL FOR DELETE BUTTON **** -->
+
+  <div class="modal fade" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <p><h4 class="modal-title" style="text-align: center;">Well Done!</h4></p>
+          </div>
+          <div class="modal-body">
+            <p>Update Complete</p>
+            <button class="btn btn-default" ng-click="AC.toAdmin()">Back to Admin</button>
+            <br>
+            <br>
+          </div>
+        </div>
+      </div>
+   </div>
+
 
 <div class="navbar navbar-inverse navbar-fixed-bottom">
       <div class="container">

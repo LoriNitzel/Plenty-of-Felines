@@ -177,6 +177,11 @@ function joinController($scope, signupService, $window, $location){
    vm.backHome = function(path){
     $location.path('/users');
     }
+
+    vm.joinClick = false; 
+    vm.showClick = function(){
+      vm.joinClick = true;
+    }
 }
 
 //+++++++ USER SIGN IN CONTROLLER +++++++//
@@ -411,6 +416,10 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
 
   vm.toCreate = function(path){
     $location.path('/cats/admin/create');
+  }
+  
+  vm.toAdmin = function(path){
+    $location.path('/cats/admin');
   }
 
 };
