@@ -21,15 +21,16 @@
   <div class="col-md-12 col-sm-12" style="text-align: center;">
   <h2 class="welcome-title"><span class="titlebrand">Plenty of Felines</span></h2>
   <h3>Admin Page</h3>
-  <button class="btn btn-danger" ng-click="AC.toCreate()">Add a New Cat</button>
+  <button class="btn btn-success" ng-click="AC.toCreate()">Add a New Cat</button>
   </div>
 </div>
 
-<span class="row" id="welcome-text" ng-repeat="cat in AC.cats.data" ng-if="$index % 3 == 0">
+<span class="row" id="welcome-text" ng-repeat="dog in AC.cats.data" ng-if="$index % 3 == 0">
   <div id="allcats" style="text-align: center;" class="col-sm-4" ng-repeat="cat in AC.cats.data.slice($index, $index+3)">
   <br>
     <button class="btn btn-default" ng-click="AC.toUpdate(cat.id)">Edit {{cat.name}}</button>
-    <button class="btn btn-default" data-toggle="modal" data-target="#myModal">{{cat.name}} Adopted! (Delete)</button>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ng-click=
+    "AC.deleteCat(cat.id)">{{cat.name}} Adopted! DELETE</button>
     <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
     <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
     <p>Age: {{cat.age}}</p>
@@ -38,27 +39,28 @@
     <p>{{cat.summary}}</p>
     <p><a href="#/cats/{{cat.id}}">More...</a></p>
     <hr>
-  </div>
-  <div class="clearfix" ng-if="$index%3==2"></div>
-</span>
-
-<!-- **** MODAL FOR DELETE BUTTON **** -->
-
-  <div class="modal fade" id="myModal">
-      <div class="modal-dialog">
+     <div class="modal fade" id="myModal">
+     <!--  <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
             <p><h4 class="modal-title" style="text-align: center;">Are you sure you want to delete this cat?</h4></p>
           </div>
           <div class="modal-body">
-            <button ng-click="AC.deleteCat(cat.id)" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Yes, Delete</button>
+            <button ng-click="AC.deleteCat(cat.id)" class="btn btn-success" data-toggle="modal" data-dismiss="modal">Yes, Delete {{cat.name}}</button>
             <br>
             <br>
           </div>
+         </div>
         </div>
-      </div>
-   </div>
+      </div> -->
+    </div>
+  <div class="clearfix" ng-if="$index%3==2"></div>
 
+
+<!-- **** MODAL FOR DELETE BUTTON **** -->
+
+ 
+</span>
 
 <div class="row" style="margin-bottom: 100px;">
 </div>

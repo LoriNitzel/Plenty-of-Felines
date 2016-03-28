@@ -64,12 +64,7 @@ angular.module('pofApp')
   return {
     state: {isLoggedin: false},
     signin: function(email, password){
-      return $http.post('http://localhost:3000/login', {"email": email, "password": password})
-       .then(function(response){
-          return response;
-        }, function(error){
-          return error;
-        })
+      return $http.post('http://localhost:3000/login', {"email": email, "password": password});
       }
     }
 }])

@@ -1,6 +1,6 @@
-app.controller('mainController', ['$scope', 'signinService', mainController]);
+app.controller('mainController', ['$scope', 'signinService', '$window', mainController]);
 app.controller('matchesController', ['$scope', 'matchesService', '$routeParams', '$location', matchesController]);
-app.controller('joinController', ['$scope', 'signupService', '$window', '$location', joinController]);
+app.controller('joinController', ['$scope', 'signupService', 'signinService', '$window', '$location', joinController]);
 app.controller('allcatsController', ['$scope', 'catsService', 'indcatsService','$routeParams', '$location', allcatsController]);
 app.controller('questionsController', ['$scope', 'holdingService', '$routeParams','$location', questionsController]);
 app.controller('profileController', ['$scope', 'profileService', '$routeParams', '$location', profileController]);
@@ -13,11 +13,21 @@ app.controller('adminController', ['$scope', '$location', 'catsService', 'indcat
 
 //+++++++ MAIN CONTROLLER - FOR ENTRY PAGE +++++++//
 
-function mainController($scope, signinService){
+function mainController($scope, signinService, $window){
   var vm = this;
-  vm.signinState = signinService.state;
-  console.log(vm.signinState);
-  
+
+  console.log($window.sessionStorage.token);
+
+  $scope.$watch(function(){return signinService.state.isLoggedin}, function(val){
+    vm.signinState = val;
+    console.log(val);
+  })
+
+
+  if ($window.sessionStorage.token){
+    signinService.state.isLoggedin = true;
+  }
+  // console.log(vm.signinState);
 };
 
 //++++++  MAKE AND DISPLAY MATCHES CONTROLLER ++++++++//
@@ -148,7 +158,7 @@ function matchesController($scope, matchesService, $routeParams, $location){
 
 //++++++ USER JOIN/REGISTER CONTROLLER ++++++++//
 
-function joinController($scope, signupService, $window, $location){
+function joinController($scope, signupService, signinService, $window, $location){
   var vm = this;
   vm.signupService = signupService;
 
@@ -174,10 +184,6 @@ function joinController($scope, signupService, $window, $location){
       }
   }
 
-   vm.backHome = function(path){
-    $location.path('/users');
-    }
-
     vm.joinClick = false; 
     vm.showClick = function(){
       vm.joinClick = true;
@@ -198,8 +204,8 @@ function signinController($scope, signinService, $window, $location){
         //get the token from the response and save it in sessionStorage or local storage
         $window.sessionStorage.token = response.data.token;
         id = response.data.id;
-        console.log(response.data.token);
-        console.log(response.data.id);
+        // console.log(response.data.token);
+        // console.log(response.data.id);
         $location.path('/users/matches');
 
       })
@@ -215,8 +221,6 @@ function signinController($scope, signinService, $window, $location){
       vm.joinEnter = function(path){
         $location.path('/users');
       }
-
-     
 
 }
 
@@ -312,13 +316,17 @@ function questionsController($scope, holdingService, $routeParams, $location){
 
 //++++++++NAVBAR CONTROLLER +++++++++//
 
-function navbarController($location, signinService, $window) {
+function navbarController($scope, $location, signinService, $window) {
   var vm = this; 
-  vm.logout = logout; 
+  // vm.logout = logout; 
   vm.signinState = signinService.state;
 
-  function logout(){
+
+  vm.logout = function(){
+    console.log('session: ', $window.sessionStorage);
+    console.log('token: ', $window.sessionStorage.token);
     delete $window.sessionStorage.token;
+    signinService.state.isLoggedin = false;
     $location.path('/');
   }
 
@@ -403,7 +411,7 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
 
   vm.deleteCat = function(cat_id){
     indcatsService.deleteCat(cat_id).then(function(data){
-    // console.log(data);
+    console.log(cat_id);
     catsService.getCats().then(function(data){
       vm.cats = data;
     })
@@ -417,7 +425,7 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
   vm.toCreate = function(path){
     $location.path('/cats/admin/create');
   }
-  
+
   vm.toAdmin = function(path){
     $location.path('/cats/admin');
   }

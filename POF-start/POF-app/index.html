@@ -21,11 +21,11 @@
 
   <body ng-controller="mainController as MC">
 
-    <navbardir ng-show="MC.signinState.isLoggedin == true"></navbardir>
+    <navbardir ng-show="MC.signinState == true"></navbardir>
 
     <div ng-view></div>
 
-    <footerdir ng-show="MC.signinState.isLoggedin == true"></footerdir>
+    <footerdir ng-show="MC.signinState == true"></footerdir>
 
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
