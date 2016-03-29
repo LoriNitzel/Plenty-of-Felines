@@ -1,17 +1,18 @@
 /* CSS for LOGIN/START PAGE */
 
-.body {
+.bodyLogin {
   margin: 0;
   background: none;
   height: 100%;
   width: 100%;
   position: absolute;
+  overflow: scroll;
   /*opacity: 0.9;*/
 }
 
 .container {
   min-height: 100%;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 /*no-repeat center center fixed*/
@@ -22,6 +23,11 @@
   -o-background-size: cover;
   background-size: cover;
   height: 100%;
+  overflow: scroll;
+}
+
+.modal-open{
+  overflow: scroll;
 }
 
 .title-index {
