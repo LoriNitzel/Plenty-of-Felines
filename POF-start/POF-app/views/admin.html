@@ -29,8 +29,8 @@
   <div id="allcats" style="text-align: center;" class="col-sm-4" ng-repeat="cat in AC.cats.data.slice($index, $index+3)">
   <br>
     <button class="btn btn-default" ng-click="AC.toUpdate(cat.id)">Edit {{cat.name}}</button>
-    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" ng-click=
-    "AC.deleteCat(cat.id)">{{cat.name}} Adopted! DELETE</button>
+    <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" confirmation-needed ng-click=
+    "AC.deleteCat(cat.id)">Adopted! DELETE</button>
     <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
     <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
     <p>Age: {{cat.age}}</p>

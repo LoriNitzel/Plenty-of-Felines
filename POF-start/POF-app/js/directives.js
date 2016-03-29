@@ -20,3 +20,21 @@
     };
   };
 
+  angular.module('pofApp')
+    .directive('confirmationNeeded', confirmationNeeded);
+
+    function confirmationNeeded() {
+  return {
+    priority: 1,
+    terminal: true,
+    link: function (scope, element, attr) {
+      var msg = attr.confirmationNeeded || "Are you sure?";
+      var clickAction = attr.ngClick;
+      element.bind('click',function () {
+        if ( window.confirm(msg) ) {
+          scope.$eval(clickAction)
+        }
+      });
+    }
+  };
+};

@@ -419,6 +419,7 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
   }
 
   vm.deleteCat = function(cat_id){
+    window.alert('Delete called!');
     indcatsService.deleteCat(cat_id).then(function(data){
     console.log(cat_id);
     catsService.getCats().then(function(data){
