@@ -64,13 +64,13 @@ function matchesController($scope, matchesService, $routeParams, $location){
       }
       if (user.desired_age == "seniors"){
         ageNum = 15;
-      } console.log(ageNum);
+      } 
         agePoints = 5 - Math.abs(cats[i].age - ageNum);
         totalPoints = totalPoints + 1.5*agePoints;
         console.log(agePoints, totalPoints);
-      // if (cats[i].age <= 1 && user.desired_age == "kittens"){
-      //   totalPoints = totalPoints + 5;
-      // }
+      if (cats[i].age <= 1 && user.desired_age == "kittens"){
+        totalPoints = totalPoints + 5;
+      }
       // if (cats[i].age > 1 && cats[i].age <= 4 && user.desired_age == "young-adults"){
       //   totalPoints = totalPoints + 5;
       // }
@@ -175,6 +175,7 @@ function joinController($scope, signupService, signinService, $window, $location
       console.log(response.data.token);
       $window.sessionStorage.token = response.data.token;
       id = response.data.id;
+      signinService.state.isLoggedin = true;
       // console.log(response.data.token);
       // console.log(response.data.id);
     })
@@ -184,10 +185,14 @@ function joinController($scope, signupService, signinService, $window, $location
       }
   }
 
-    vm.joinClick = false; 
-    vm.showClick = function(){
-      vm.joinClick = true;
+    vm.toQuestions = function(path){
+      $location.path('/questions');
     }
+
+    // vm.joinClick = false; 
+    // vm.showClick = function(){
+    //   vm.joinClick = true;
+    // }
 }
 
 //+++++++ USER SIGN IN CONTROLLER +++++++//
@@ -282,6 +287,10 @@ function allcatsController($scope, catsService, indcatsService, $routeParams, $l
 
   vm.backtoMatches = function(path){
     $location.path('/users/matches');
+  }
+
+  vm.backtoCats = function(path){
+    $location.path('/cats');
   }
 }
 

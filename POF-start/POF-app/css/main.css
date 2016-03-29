@@ -3,7 +3,7 @@
 .body {
   margin: 0;
   background: none;
- /* opacity: 0.9;*/
+  /*opacity: 0.9;*/
 }
 
 .bigpic {
@@ -78,6 +78,10 @@ a.btn.btn-primary.btn-md{
 .modal-backdrop.fade.in {
 opacity: 0;
 filter: alpha(opacity=50);
+}
+
+.modal-backdrop {
+  z-index: -1;
 }
 
 /*TRYING TO CHANGE ANIMATION SPEED OF MODALS BUT THIS DOESNT SEEM TO WORK*/
@@ -205,7 +209,7 @@ img.avatar {
 /* Join page CSS, i think */
 
 span.error {
-  color: red;
+  color: #EC9481;
   font-weight: bold;
 }
 
