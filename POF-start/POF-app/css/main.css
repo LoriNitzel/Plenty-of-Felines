@@ -215,6 +215,16 @@ img.avatar {
   margin-left: 300px;
 }
 
+.panel-body{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.panel-heading{
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
 /* Join page CSS, i think */
 
 span.error {

@@ -67,7 +67,8 @@ angular.module('pofApp')
       })
 
       .when('/about', {
-        templateUrl: 'views/about.html'
+        templateUrl: 'views/about.html',
+        controller: 'navbarController as NC'
       })
 
       .when('/logout', {

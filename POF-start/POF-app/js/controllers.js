@@ -18,9 +18,9 @@ function mainController($scope, signinService, $window){
 
   console.log($window.sessionStorage.token);
 
-  $scope.$watch(function(){return signinService.state.isLoggedin}, function(val){
-    vm.signinState = val;
-    console.log(val);
+  $scope.$watch(function(){return signinService.state.isLoggedin}, function(newval){
+    vm.signinState = newval;
+    console.log(newval);
   })
 
 
@@ -214,7 +214,9 @@ function signinController($scope, signinService, $window, $location){
         $location.path('/users/matches');
 
       })
-      .catch(function() {
+      .catch(function(msg) { 
+        console.log(msg);
+        vm.loginError = true;
         console.error('something went wrong!');
       });
   }
@@ -327,9 +329,13 @@ function questionsController($scope, holdingService, $routeParams, $location){
 
 function navbarController($scope, $location, signinService, $window) {
   var vm = this; 
-  // vm.logout = logout; 
-  vm.signinState = signinService.state;
+  
+  vm.signinState = signinService.state.isLoggedin;
 
+  $scope.$watch(function(){return signinService.state.isLoggedin}, function(newval){
+    vm.signinState = newval;
+    console.log(newval);
+  })
 
   vm.logout = function(){
     console.log('session: ', $window.sessionStorage);
