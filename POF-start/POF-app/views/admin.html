@@ -7,7 +7,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" id="navtitle" href="#/" ng-click="NC.backHome()">Plenty of Felines</a>
+          <a class="navbar-brand" id="navtitle" href="/" ng-click="NC.backHome()">Plenty of Felines</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav pull-right">
@@ -31,13 +31,13 @@
     <button class="btn btn-default" ng-click="AC.toUpdate(cat.id)">Edit {{cat.name}}</button>
     <button class="btn btn-danger" data-toggle="modal" data-target="#myModal" confirmation-needed ng-click=
     "AC.deleteCat(cat.id)">Adopted! DELETE</button>
-    <h2><a href="#/cats/{{cat.id}}">{{cat.name}}</a></h2>
-    <p><a href="#/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
+    <h2><a href="/cats/{{cat.id}}">{{cat.name}}</a></h2>
+    <p><a href="/cats/{{cat.id}}"><img class="catpics" src="{{cat.photo}}"/></a></p>
     <p>Age: {{cat.age}}</p>
     <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
     <p><strong>About {{cat.name}}:</strong></p>
     <p>{{cat.summary}}</p>
-    <p><a href="#/cats/{{cat.id}}">More...</a></p>
+    <p><a href="/cats/{{cat.id}}">More...</a></p>
     <hr>
      <div class="modal fade" id="myModal">
      <!--  <div class="modal-dialog">

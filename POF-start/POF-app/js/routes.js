@@ -1,5 +1,5 @@
 angular.module('pofApp')
-  .config(function($routeProvider){
+  .config(function($routeProvider, $locationProvider){
     $routeProvider
       .when('/', {
         templateUrl: 'views/login.html',
@@ -79,5 +79,6 @@ angular.module('pofApp')
       .otherwise({
         redirectTo: '/'
     });
-      // $locationProvider.html5Mode(true);
+      
+      $locationProvider.html5Mode(true);
   });
