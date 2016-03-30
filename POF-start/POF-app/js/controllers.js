@@ -229,6 +229,7 @@ function signinController($scope, signinService, $window, $location){
         $location.path('/users');
       }
 
+      vm.show = false;
 }
 
 //+++++++ SHOW USER PROFILE CONTROLLER +++++//

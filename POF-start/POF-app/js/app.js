@@ -1,1 +1,1 @@
-var app = angular.module('pofApp', ['ngRoute']);
+var app = angular.module('pofApp', ['ngRoute', 'ngSanitize']);

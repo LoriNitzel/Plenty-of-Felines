@@ -1,4 +1,4 @@
- <div class="row" style="margin: auto; padding-top: 60px;">
+ <div class="row" style="margin: auto; padding-top: 60px;" id="mobileFix">
   <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center;">
     <h1 style="padding-bottom: 30px;">{{AC.cat.name}}</h1>
     <div class="carousel__container">
@@ -16,8 +16,8 @@
 </div> 
 <br>
 <div class="row" style="margin-top: 60px;">
-  <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center; margin-top: 30px;">
-  <p>{{AC.cat.general_characteristics}}</p>
+  <div class="col-md-8 col-md-offset-2 col-sm-12" style="text-align: center; margin-top: 30px;" id="mobileFixMargin">
+  <p ng-bind-html="AC.cat.general_characteristics | linky"></p>
   <h4><a href="https://www.fccrsnc.org/Service_Adoption_Info.php" target="_blank">Adopt {{AC.cat.name}}!</a></h4>
   </div>
 </div>
@@ -27,7 +27,7 @@
   <button class="btn btn-warning" ng-click="AC.backtoMatches()">Back to Matches</button>
   <br>
   <br>
-  <button class="btn btn-warning" ng-click="AC.backtoCats()" style="margin-bottom: 100px;">Back to All Cats</button>
+  <button class="btn btn-warning" ng-click="AC.backtoCats()" style="margin-bottom: 100px;">See ALL Adoptable Cats</button>
   </div>
 </div>
 

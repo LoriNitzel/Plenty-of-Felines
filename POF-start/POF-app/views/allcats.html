@@ -12,7 +12,7 @@
         <p>Age: {{cat.age}}</p>
         <p>{{cat.name}} is {{cat.color}} in color, is a {{cat.hair}}, and is {{cat.gender}}.</p>
         <p><strong>About {{cat.name}}:</strong></p>
-        <p>{{cat.summary}}</p>
+        <p ng-bind-html="cat.summary | linky"></p>
         <p><a href="/cats/{{cat.id}}">More...</a></p>
   </div>
 </span>
