@@ -24,13 +24,13 @@ angular.module('pofApp')
         return $http.get(backendService.url + '/cats/' + param1);
       },
       createCat: function(newCatData){
-        return $http.post(backendService.url, newCatData);
+        return $http.post(backendService.url + '/cats/admin/create', newCatData);
       },
       updateCat: function(param1, updateCatData){
-        return $http.put(backendService.url + '/cats' + '/admin/' + param1, updateCatData);
+        return $http.put(backendService.url + '/cats/admin/' + param1, updateCatData);
       },
       deleteCat: function(param1){
-        return $http.delete(backendService.url + '/cats/' + param1);
+        return $http.delete(backendService.url + '/cats/admin/delete/' + param1);
     }
   }
 }])

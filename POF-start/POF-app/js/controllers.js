@@ -393,7 +393,7 @@ function adminController($scope, $location, catsService, indcatsService, $routeP
     };
 
     indcatsService.createCat(newCatData).then(function(response){
-      // console.log(response);
+        $location.path('/cats/admin');    
 
     })
   }
